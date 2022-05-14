@@ -15,8 +15,8 @@
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -148,39 +148,38 @@
 						<form action="job-list.php" method="GET" autocomplete="off">
 							<div class="form-holder">
 								<div class="row gap-0">
-								
 									<div class="col-xss-6 col-xs-6 col-sm-6">
 										<select class="form-control" name="category" required>
-										<option value="">Tất cả ngành nghề </option>
-										 <?php
-											require 'constants/db_config.php';
-											try {
-												$conn = new PDO(
-													"mysql:host=$servername;dbname=$dbname",
-													$username,
-													$password
-												);
-												$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+											<option value="">Tất cả Công việc</option>
+											<?php
+												require 'constants/db_config.php';
+												try {
+													$conn = new PDO(
+														"mysql:host=$servername;dbname=$dbname",
+														$username,
+														$password
+													);
+													$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-												$stmt = $conn->prepare(
-													'SELECT * FROM tbl_categories ORDER BY category'
-												);
-												$stmt->execute();
-												$result = $stmt->fetchAll();
+													$stmt = $conn->prepare(
+														'SELECT * FROM tbl_categories ORDER BY category'
+													);
+													$stmt->execute();
+													$result = $stmt->fetchAll();
 
-												foreach ($result as $row) { ?>
-														<option style="color:black" value="<?= $row['category']; ?>
-															"><?= $row['category']; ?>
+													foreach ($result as $row) { ?>
+														<option style="color:black" value="<?= $row['category']; ?>">
+															<?= $row['category']; ?>
 														</option>
-												<?php }
-												$stmt->execute();
-											} catch (PDOException $e) {}?>
+													<?php }
+													$stmt->execute();
+												} catch (PDOException $e) {}?>
 										</select>
 									</div>
 									
 									<div class="col-xss-6 col-xs-6 col-sm-6">
 										<select class="form-control"  name="country" required>
-											<option value="">Tất cả quốc gia</option>
+											<option value="">Tất cả Quốc gia</option>
 											<?php
 												require 'constants/db_config.php';
 												try {
@@ -198,8 +197,8 @@
 													$result = $stmt->fetchAll();
 
 													foreach ($result as $row) { ?>						
-														<option style="color:black" value="<?php echo $row['country_name']; ?>
-															"><?= $row['country_name']; ?>
+														<option style="color:black" value="<?= $row['country_name']; ?> ">
+															<?= $row['country_name']; ?>
 														</option>
 													<?php }
 													$stmt->execute();
@@ -210,16 +209,15 @@
 								</div>
 							</div>
 							
-							<!-- <div class="btn-holder">
+							<div class="btn-holder">
 								<button name="search" value="✓" type="submit" class="btn"><i class="ion-android-search"></i></button>
 							</div>
-						 	-->
+						 	
 						</form>
 					</div>
 				</div>
 			</div>
 
-			
 			<div class="post-hero bg-light">
 				<div class="container">
 					<div class="process-item-wrapper mt-20">
@@ -372,7 +370,7 @@
 										if ($type == 'Full-time') {
 											$sta = '<div class="job-label label label-warning">Full-time</div>';
 										} ?>
-										<a class="recent-job-item clearfix" target="_blank" href="explore-job.php?jobid=<?php echo $row['job_id']; ?>">
+										<a class="recent-job-item clearfix" target="_blank" href="explore-job.php?jobid=<?= $row['job_id']; ?>">
 											<div class="GridLex-grid-middle">
 												<div class="GridLex-col-5_xs-12">
 													<div class="job-position">
@@ -385,21 +383,21 @@
 														</div>
 
 														<div class="content">
-															<h4><?php echo "$title"; ?></h4>
-															<p><?php echo "$thecompname"; ?></p>
+															<h4><?= "$title"; ?></h4>
+															<p><?= "$thecompname"; ?></p>
 														</div>
 													</div>
 												</div>
 
 												<div class="GridLex-col-5_xs-8_xss-12 mt-10-xss">
 													<div class="job-location">
-														<i class="fa fa-map-marker text-primary"></i> <?php echo "$jobcountry"; ?></strong> - <?php echo "$jobcity"; ?>
+														<i class="fa fa-map-marker text-primary"></i> <?= "$jobcountry"; ?></strong> - <?= "$jobcity"; ?>
 													</div>
 												</div>
 
 												<div class="GridLex-col-2_xs-4_xss-12">
-													<?php echo "$sta"; ?>
-													<span class="font12 block spacing1 font400 text-center">Due - <?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?></span>
+													<?= "$sta"; ?>
+													<span class="font12 block spacing1 font400 text-center">Due - <?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?></span>
 												</div>
 											</div>
 										</a>						
@@ -464,9 +462,9 @@
 							
 							<div class="col-sm-4 col-md-4">
 								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
+									<li><a href="<?= "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+									<li><a href="<?= "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+									<li><a href="<?= "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
 								</ul>
 							</div>
 						</div>
