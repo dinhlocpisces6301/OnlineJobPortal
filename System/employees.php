@@ -190,7 +190,7 @@ if (isset($_GET['page'])) {
 					<div class="sorting-wrappper">
 			
 						<div class="sorting-header">
-							<h3 class="sorting-title">Ứng viên</h3>
+							<h3 class="sorting-title">Employees</h3>
 						</div>
 						
 		
@@ -266,7 +266,7 @@ if (isset($_GET['page'])) {
                 'country'
             ]; ?></p>
 												
-												<h6 class="text-primary">Học vấn : <?php echo $row['education']; ?></h6>
+												<h6 class="text-primary">Education : <?php echo $row['education']; ?></h6>
 												
                                                 <h6 class="text-primary"><?php echo $row[
                                                     'title'

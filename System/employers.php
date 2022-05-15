@@ -206,7 +206,7 @@ if (isset($_GET['page'])) {
 							<div class="GridLex-col-3_sm-12_xs-12">
 							
 								<div class="sorting-header">
-									<h3 class="sorting-title">Nhà tuyển dụng</h3>
+									<h3 class="sorting-title">Employers</h3>
 								</div>
 								
 							</div>
@@ -258,7 +258,7 @@ if (isset($_GET['page'])) {
 							<div class="content">
 							<h5 class="heading text-primary font700"><?php echo $row['first_name']; ?></h5>
 							<p class="texting font600"><?php echo $row['title']; ?><p>
-							<p class="mata-p clearfix"><span class="text-primary font700">25</span> <span class="font13">công việc đang hoạt động</span> <span class="pull-right icon"><i class="fa fa-long-arrow-right"></i></span></p>
+							<p class="mata-p clearfix"><span class="text-primary font700">25</span> <span class="font13">Active job post(s)</span> <span class="pull-right icon"><i class="fa fa-long-arrow-right"></i></span></p>
 							</div>
 										
 							</a>

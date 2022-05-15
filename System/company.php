@@ -148,11 +148,9 @@ if (isset($_GET['page'])) {
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 						<?php if ($user_online == true) {
-          print '
+          				print '
 						    <li><a href="logout.php">logout</a></li>
-							<li><a href="' .
-              $myrole .
-              '">Profile</a></li>';
+							<li><a href="'.$myrole .'">Profile</a></li>';
       } else {
           print '
 							<li><a href="login.php">login</a></li>
@@ -243,15 +241,15 @@ if (isset($_GET['page'])) {
 										
 										<ul class="meta-list clearfix">
 											<li>
-												<h4 class="heading">Năm thành lập</h4>
+												<h4 class="heading">Established In:</h4>
 												<?php echo "$compesta"; ?>
 											</li>
 											<li>
-												<h4 class="heading">Loại hình:</h4>
+												<h4 class="heading">Type:</h4>
 												<?php echo "$comptype"; ?>
 											</li>
 											<li>
-												<h4 class="heading">Quy mô:</h4>
+												<h4 class="heading">People:</h4>
 												<?php echo "$comppeopl"; ?>
 											</li>
 											<li>
@@ -278,19 +276,31 @@ if (isset($_GET['page'])) {
 								<div class="company-detail-wrapper">
 								
 									
+<<<<<<< HEAD
 						
 									<div class="company-detail-company-overview box-white clearfix">
 									
 										<h3 class="title">Giới thiệu</h3>
+=======
+										<h3>Company background</h3>
+>>>>>>> parent of cde7ef6 (Edit layouts)
 										
 										<p><?php echo "$compbout"; ?></p>
 
 										
+<<<<<<< HEAD
 										<h3 class="title">Sản phẩm và dịch vụ</h3>
 										
 										<p><?php echo "$compserv"; ?></p>
 										
 										<h3 class="title">Chuyên môn</h3>
+=======
+										<h3>Services</h3>
+										
+										<p><?php echo "$compserv"; ?></p>
+										
+										<h3>Expertise</h3>
+>>>>>>> parent of cde7ef6 (Edit layouts)
 										
 										<p><?php echo "$compexp"; ?></p>
 										
@@ -299,7 +309,11 @@ if (isset($_GET['page'])) {
 									
 									<div class="section-title box-white  mb-40">
 						
+<<<<<<< HEAD
 										<h3 class="text-left title" >Tuyển dụng </h3>
+=======
+										<h4 class="text-left">jobs offered at <?php echo "$compname"; ?></h4>
+>>>>>>> parent of cde7ef6 (Edit layouts)
 										
 									
 
@@ -383,19 +397,19 @@ if (isset($_GET['page'])) {
 														<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
-																<span>Quốc gia:</span>
+																<span>Country:</span>
 																<?php echo $row['country']; ?>
 															</li>
 															<li>
-																<span>Thành phố:</span>
+																<span>City:</span>
 																<?php echo $row['city']; ?>
 															</li>
 															<li>
-																<span>Kinh nghiệm:</span>
+																<span>Experience:</span>
 																<?php echo $row['experience']; ?>
 															</li>
 															<li>
-																<span>Hạn nộp hồ sơ: </span>
+																<span>Deadline: </span>
 																<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
 															</li>
 														</ul>
@@ -419,7 +433,7 @@ if (isset($_GET['page'])) {
 													<div class="col-sm-5 col-md-4">
 														<a target="_blank" href="explore-job.php?jobid=<?php echo $row[
                   'job_id'
-              ]; ?>" class="btn btn-primary">Xem thêm</a>
+              ]; ?>" class="btn btn-primary">View This Job</a>
 													</div>
 														
 													</div>

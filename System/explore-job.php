@@ -302,24 +302,25 @@ if ($today_date > $conv_date) {
 									<h2 class="heading mb-15"><?php echo "$jobtitle"; ?></h2>
 								
 									<div class="meta-div clearfix mb-25">
-										<span>Tại <a target="_blank" href="company.php?ref=<?php echo "$compid"; ?>"><?php echo "$compname"; ?></a> 
+										<span>at <a target="_blank" href="company.php?ref=<?php echo "$compid"; ?>"><?php echo "$compname"; ?></a> as </span>
+										<?php echo "$sta"; ?>
 									</div>
 									
 									<ul class="meta-list clearfix">
 										<li>
-											<h4 class="heading">Địa điểm:</h4>
+											<h4 class="heading">Location:</h4>
 											<?php echo "$jobcity"; ?> , <?php echo "$jobcountry"; ?>
 										</li>
 										<li>
-											<h4 class="heading">Hạn nộp hồ sơ:</h4>
+											<h4 class="heading">Deadline:</h4>
 											<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
 										</li>
 										<li>
-											<h4 class="heading">Kinh nghiệm làm việc</h4>
+											<h4 class="heading">Experience</h4>
 											<?php echo "$experience"; ?> 
 										</li>
 										<li>
-											<h4 class="heading">Ngày đăng: </h4>
+											<h4 class="heading">Posted: </h4>
 											<?php echo "$opendate"; ?>
 										</li>
 									</ul>
@@ -328,7 +329,7 @@ if ($today_date > $conv_date) {
 					
 								<div class="job-detail-company-overview clearfix">
 								
-									<h3>Giới thiệu</h3>
+									<h3>Company overview</h3>
 									<div class="image">
 										<?php if ($complogo == null) {
               print '<center>No Company Logo</center>';
@@ -347,16 +348,16 @@ if ($today_date > $conv_date) {
 								
 								<div class="job-detail-content mt-30 clearfix">
 								
-									<h3>Mô tả công việc:</h3>
+									<h3>Job Description</h3>
 
 									<p><?php echo "$jobdescription"; ?></p>
 
 									
-									<h3>Trách nhiệm:</h3>
+									<h3>Job Responsibilities</h3>
 									
                                     <p><?php echo "$jobrespo"; ?></p>
 									
-									<h3>Yêu cầu:</h3>
+									<h3>Requirements:</h3>
                                     <p><?php echo "$jobreq"; ?></p>
 								
 								</div>
@@ -364,18 +365,18 @@ if ($today_date > $conv_date) {
 								<div class="apply-job-wrapper">
 								<?php if ($user_online == true) {
             if ($jobexpired == true) {
-                print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> Hết hạn nộp hồ sơ </button>';
+                print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> This job is expired</button>';
             } else {
                 if ($myrole == 'employee') {
                     print '<button'; ?> onclick="update(this.value)" <?php print ' value="' .
      $jobid .
-     '" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Ứng tuyển ngay</button>';
+     '" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Apply this job</button>';
                 } else {
-                    print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Đăng nhập để ứng tuyển ngay</button>';
+                    print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login as employee to apply</button>';
                 }
             }
         } else {
-            print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Đăng nhập để ứng tuyển ngay</button>';
+            print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login to apply this job</button>';
         } ?>
 								
 								<p id="data"></p>
@@ -385,7 +386,7 @@ if ($today_date > $conv_date) {
 								<div class="tab-style-01">
 								
 									<ul class="nav" role="tablist">
-										<li role="presentation" class="active"><h4><a href="#relatedJob1" role="tab" data-toggle="tab">Các công việc khác đến từ <?php echo "$compname"; ?></a></h4></li>
+										<li role="presentation" class="active"><h4><a href="#relatedJob1" role="tab" data-toggle="tab">More jobs from <?php echo "$compname"; ?></a></h4></li>
 									</ul>
 
 									<div class="tab-content">
