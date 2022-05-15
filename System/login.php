@@ -3,7 +3,7 @@
 <?php
 include 'constants/settings.php';
 include 'constants/check-login.php';
-$title = 'Đăng nhập'
+$title = 'Đăng nhập';
 ?>
 <head>
 
@@ -17,8 +17,8 @@ $title = 'Đăng nhập'
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -91,7 +91,7 @@ $title = 'Đăng nhập'
 <body class="not-transparent-header">
 	<div class="container-wrapper">
 		<header id="header">
-			<?php include 'layouts/header.php' ?>
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 
@@ -104,7 +104,7 @@ $title = 'Đăng nhập'
 				
 					<ol class="breadcrumb-list">
 						<li><a href="./">Trang chủ</a></li>
-						<li><span><?=$title?></span></li>
+						<li><span><?= $title ?></span></li>
 					</ol>
 					
 				</div>
@@ -128,7 +128,7 @@ $title = 'Đăng nhập'
                                 <div class="login-box-wrapper">
 							
                                 <div class="modal-header">
-                                <h4 class="modal-title text-center">Access your account</h4>
+                                <h4 class="modal-title text-center">Truy cập tài khoản của bạn</h4>
                                 </div>
 
                                 <div class="modal-body">
@@ -139,7 +139,7 @@ $title = 'Đăng nhập'
                                 <div class="col-sm-12 col-md-12">
 
                                 <div class="form-group"> 
-                                <label>Email Address</label>
+                                <label>Email </label>
                                 <input class="form-control" placeholder="Enter your email address" name="email" required type="text"> 
                                 </div>
 												
@@ -148,7 +148,7 @@ $title = 'Đăng nhập'
                                 <div class="col-sm-12 col-md-12">
 												
                                 <div class="form-group"> 
-                                <label>Password</label>
+                                <label>Mật khẩu</label>
                                 <input class="form-control" placeholder="Enter your password" name="password" required type="password"> 
                                 </div>
 												
@@ -158,7 +158,7 @@ $title = 'Đăng nhập'
 						
 					          	<div class="col-sm-12 col-md-12">
 							    <div class="login-box-link-action">
-								<a data-toggle="modal" onclick = "reset_text()" href="#forgotPasswordModal">Forgot password?</a> 
+								<a data-toggle="modal" onclick = "reset_text()" href="#forgotPasswordModal">Quên mật khẩu?</a> 
 							    </div>
 						      </div>	
 
@@ -170,7 +170,7 @@ $title = 'Đăng nhập'
 </div>
 
 <div class="modal-footer text-center">
-<button type="submit" class="btn btn-primary">Login</button>
+<button type="submit" class="btn btn-primary">Đăng nhập</button>
 </div>
 										
 </div>
@@ -180,21 +180,22 @@ $title = 'Đăng nhập'
 			
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Restore your forgotten password</h4>
+					<h4 class="modal-title text-center">Khôi phục mật khẩu đã quên của bạn</h4>
 				</div>
 
 				<div class="modal-body">
 					<div class="row gap-20">
 						
 						<div class="col-sm-12 col-md-12">
-							<p class="mb-20">Enter the email address associated to your account, we will send you the link to reset your password</p>
+							<p class="mb-20">
+Nhập địa chỉ email được liên kết với tài khoản của bạn, chúng tôi sẽ gửi cho bạn liên kết để đặt lại mật khẩu của bạn</p>
 						</div>
 						
 						<div class="col-sm-12 col-md-12">
 				
 							<div class="form-group"> 
 
-								<label>Email Address</label>
+								<label>Email </label>
 								<input id="mymail" autocomplete="off" name="email" class="form-control" placeholder="Enter your email address" type="email" required> 
 							</div>
 						
@@ -204,7 +205,7 @@ $title = 'Đăng nhập'
 						
 						<div class="col-sm-12 col-md-12">
 							<div class="login-box-box-action">
-								Return to <a data-dismiss="modal">Log-in</a>
+							Trở lại<a data-dismiss="modal">Đăng nhập</a>
 								<p id="data"></p>
 							</div>
 							
@@ -214,8 +215,8 @@ $title = 'Đăng nhập'
 				</div>
 				
 				<div class="modal-footer text-center">
-					<button  onclick="update(mymail.value)" type="submit" class="btn btn-primary">Restore</button>
-					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Close</button>
+					<button  onclick="update(mymail.value)" type="submit" class="btn btn-primary">Khôi phục</button>
+					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Đóng</button>
 				</div>
 		
 			</div>
@@ -232,7 +233,7 @@ $title = 'Đăng nhập'
 			
 			</div>
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>

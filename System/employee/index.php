@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
-<?php 
-	require '../constants/settings.php'; 
-	require 'constants/check-login.php';
+<?php
+require '../constants/settings.php';
+require 'constants/check-login.php';
 
-	if ($user_online == "true") {
-		if ($myrole == "employee") {
-		} else {
-			header("location:../");		
-		}
-	} else {
-		header("location:../");	
-	}
+if ($user_online == 'true') {
+    if ($myrole == 'employee') {
+    } else {
+        header('location:../');
+    }
+} else {
+    header('location:../');
+}
 ?>
 <head>
 
@@ -24,8 +24,8 @@
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -93,26 +93,25 @@
 								<div class="admin-content-wrapper">
 									<div class="admin-section-title">
 										<h2>HỒ SƠ</h2>
-										<p>Lần đăng nhập cuối: <span class="text-primary"><?= "$mylogin"; ?></span></p>
+										<p>Lần đăng nhập cuối: <span class="text-primary"><?= "$mylogin" ?></span></p>
 									</div>
 									
 										<form class="post-form-wrapper" action="app/update-profile.php" method="POST" autocomplete="off">
 											<div class="row gap-20">
-											<?php 
-												require 'constants/check_reply.php'; ?>
+											<?php require 'constants/check_reply.php'; ?>
 
 												<div class="clear"></div>
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Tên</label>
-														<input name="fname" required type="text" class="form-control" value="<?= "$myfname"; ?>" placeholder="Điền tên của bạn">
+														<input name="fname" required type="text" class="form-control" value="<?= "$myfname" ?>" placeholder="Điền tên của bạn">
 													</div>
 												</div>
 												
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Họ</label>
-														<input name="lname" required type="text" class="form-control" value="<?= "$mylname"; ?>" placeholder="Điền họ của bạn">
+														<input name="lname" required type="text" class="form-control" value="<?= "$mylname" ?>" placeholder="Điền họ của bạn">
 													</div>
 												</div>
 												
@@ -124,51 +123,109 @@
 															<div class="col-xs-3 col-sm-3">
 																<select name="date" required class="selectpicker form-control" data-live-search="false">
 																	<option disabled value="">Ngày</option>
-                                                                    <?php 
-                                                                      	$x = 1; 
+                                                                    <?php
+                                                                    $x = 1;
 
-                                                                      	while($x <= 31) {
-												                      		if ($x < 10) {
-														              			$x = "0$x";
-													                  			print '<option '; if ($mydate == $x ) { print ' selected '; } print ' value="'.$x.'">'.$x.'</option>';
-													                  		} else {
-													                  			print '<option '; if ($mydate == $x ) { print ' selected '; } print ' value="'.$x.'">'.$x.'</option>';
-													                  		}
-                                                                      		$x++;
-                                                                       	} 
-                                                                     ?>
+                                                                    while (
+                                                                        $x <= 31
+                                                                    ) {
+                                                                        if (
+                                                                            $x <
+                                                                            10
+                                                                        ) {
+                                                                            $x = "0$x";
+                                                                            print '<option ';
+                                                                            if (
+                                                                                $mydate ==
+                                                                                $x
+                                                                            ) {
+                                                                                print ' selected ';
+                                                                            }
+                                                                            print ' value="' .
+                                                                                $x .
+                                                                                '">' .
+                                                                                $x .
+                                                                                '</option>';
+                                                                        } else {
+                                                                            print '<option ';
+                                                                            if (
+                                                                                $mydate ==
+                                                                                $x
+                                                                            ) {
+                                                                                print ' selected ';
+                                                                            }
+                                                                            print ' value="' .
+                                                                                $x .
+                                                                                '">' .
+                                                                                $x .
+                                                                                '</option>';
+                                                                        }
+                                                                        $x++;
+                                                                    }
+                                                                    ?>
 																</select>
 															</div>
 
 															<div class="col-xs-5 col-sm-5">
 																<select name="Tháng" required class="selectpicker form-control" data-live-search="false">
-                                                                    <?php 
-                                                                    	$x = 1; 
+                                                                    <?php
+                                                                    $x = 1;
 
-                                                                      	while($x <= 12) {
-												                      		if ($x < 10) {
-														              			$x = "0$x";
-													                  			print '<option '; if ($mymonth == $x ) { print ' selected '; } print ' value="'.$x.'">'.$x.'</option>';
-													                  		} else {
-													                  			print '<option '; if ($mymonth == $x ) { print ' selected '; } print ' value="'.$x.'">'.$x.'</option>';
-													                  		}
-                                                                      			$x++;
-                                                                       	} 
+                                                                    while (
+                                                                        $x <= 12
+                                                                    ) {
+                                                                        if (
+                                                                            $x <
+                                                                            10
+                                                                        ) {
+                                                                            $x = "0$x";
+                                                                            print '<option ';
+                                                                            if (
+                                                                                $mymonth ==
+                                                                                $x
+                                                                            ) {
+                                                                                print ' selected ';
+                                                                            }
+                                                                            print ' value="' .
+                                                                                $x .
+                                                                                '">' .
+                                                                                $x .
+                                                                                '</option>';
+                                                                        } else {
+                                                                            print '<option ';
+                                                                            if (
+                                                                                $mymonth ==
+                                                                                $x
+                                                                            ) {
+                                                                                print ' selected ';
+                                                                            }
+                                                                            print ' value="' .
+                                                                                $x .
+                                                                                '">' .
+                                                                                $x .
+                                                                                '</option>';
+                                                                        }
+                                                                        $x++;
+                                                                    }
                                                                     ?>
 																</select>
 															</div>
 
 															<div class="col-xs-4 col-sm-4">
 																<select name="Năm" class="selectpicker form-control" data-live-search="false">
-													            	<?php 
-                                                                 		$x = date('Y'); 
-                                                                 		$yr = 60;
-													             		$y2 = $x - $yr;
-                                                                 		while($x > $y2) {
-													             			print '<option '; if ($myyear == $x ) { print ' selected '; } print ' value="'.$x.'">'.$x.'</option>';
-                                                                			$x = $x - 1;
-                                                                  		} 
-                                                                	?>
+													            	<?php
+                          $x = date('Y');
+                          $yr = 60;
+                          $y2 = $x - $yr;
+                          while ($x > $y2) {
+                              print '<option ';
+                              if ($myyear == $x) {
+                                  print ' selected ';
+                              }
+                              print ' value="' . $x . '">' . $x . '</option>';
+                              $x = $x - 1;
+                          }
+                          ?>
 																</select>
 															</div>
 														</div>
@@ -178,7 +235,7 @@
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Email</label>
-														<input type="email" name="email" required class="form-control" value="<?= "$myemail"; ?>" placeholder="Nhập địa chỉ email của bạn">
+														<input type="email" name="email" required class="form-control" value="<?= "$myemail" ?>" placeholder="Nhập địa chỉ email của bạn">
 													</div>
 												</div>
 												
@@ -189,11 +246,11 @@
 													</div>
 													
 													<div class="col-sm-6 col-md-4">
-                                                    	<input value="<?= "$myedu"; ?>" name="education" type="text" required class="form-control" placeholder="Eg: Diploma, Degree...etc">
+                                                    	<input value="<?= "$myedu" ?>" name="education" type="text" required class="form-control" placeholder="Eg: Diploma, Degree...etc">
 													</div>
 													
 													<div class="col-sm-6 col-md-4">
-														<input value="<?= "$mytitle"; ?>" name="title" required type="text" class="form-control mb-15" placeholder="Eg: Computer Science, IT...etc">
+														<input value="<?= "$mytitle" ?>" name="title" required type="text" class="form-control mb-15" placeholder="Eg: Computer Science, IT...etc">
 													</div>
 														
 												</div>
@@ -205,8 +262,12 @@
 														<label>Giới tính</label>
 														<select name="gender" required class="selectpicker show-tick form-control" data-live-search="false">
 															<option disabled value="">Chọn</option>
-															<option <?php if ($mygender == "Male") { print ' selected '; } ?> value="Male">Nam</option>
-															<option <?php if ($mygender == "Female") { print ' selected '; } ?>value="Female">Nữ</option>
+															<option <?php if ($mygender == 'Male') {
+                   print ' selected ';
+               } ?> value="Male">Nam</option>
+															<option <?php if ($mygender == 'Female') {
+                   print ' selected ';
+               } ?>value="Female">Nữ</option>
 														</select>
 													</div>
 												</div>
@@ -214,7 +275,7 @@
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Tỉnh/Thành phố</label>
-														<input name="city" required type="text" class="form-control" value="<?= "$mycity"; ?>">
+														<input name="city" required type="text" class="form-control" value="<?= "$mycity" ?>">
 													</div>
 													
 												</div>
@@ -223,37 +284,46 @@
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Đường</label>
-														<input name="street" required type="text" class="form-control" value="<?= "$mystreet"; ?>">
+														<input name="street" required type="text" class="form-control" value="<?= "$mystreet" ?>">
 													</div>
 												</div>
 												
-												<div class="col-sm-6 col-md-4">
-													<div class="form-group">
-														<label>Zip Code</label>
-														<input name="zip" required type="text" class="form-control" value="<?= "$myzip"; ?>">
-													</div>
-												</div>
-
+											
 												<div class="clear"></div>
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>Quốc gia</label>
 														<select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
-						                                   	<?php require '../constants/db_config.php';
-														   		try {
-                                                           			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                                                           			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						                                   	<?php
+                                          require '../constants/db_config.php';
+                                          try {
+                                              $conn = new PDO(
+                                                  "mysql:host=$servername;dbname=$dbname",
+                                                  $username,
+                                                  $password
+                                              );
+                                              $conn->setAttribute(
+                                                  PDO::ATTR_ERRMODE,
+                                                  PDO::ERRMODE_EXCEPTION
+                                              );
 
-	
-																	$stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
-																	$stmt->execute();
-																	$result = $stmt->fetchAll();
-  
-                                                           			foreach($result as $row) { ?> 
-																		<option <?php if ($mycountry == $row['country_name']) { print ' selected '; } ?> value="<?= $row['country_name']; ?>"><?= $row['country_name']; ?></option> 
+                                              $stmt = $conn->prepare(
+                                                  'SELECT * FROM tbl_countries ORDER BY country_name'
+                                              );
+                                              $stmt->execute();
+                                              $result = $stmt->fetchAll();
+
+                                              foreach ($result as $row) { ?> 
+																		<option <?php if ($mycountry == $row['country_name']) {
+                      print ' selected ';
+                  } ?> value="<?= $row['country_name'] ?>"><?= $row[
+    'country_name'
+] ?></option> 
 																	<?php }
-		                                                       } catch(PDOException $e) {} ?>
+                                          } catch (PDOException $e) {
+                                          }
+                                          ?>
 														</select>
 													</div>
 												</div>
@@ -261,7 +331,7 @@
 												<div class="col-sm-6 col-md-4">
 													<div class="form-group">
 														<label>SĐT</label>
-														<input type="text" name="phone" required class="form-control" value="<?= "$myphone"; ?>">
+														<input type="text" name="phone" required class="form-control" value="<?= "$myphone" ?>">
 													</div>
 												</div>
 
@@ -269,7 +339,7 @@
 												<div class="col-sm-12 col-md-12">
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Giới thiệu bản thân</label>
-														<textarea name="about" class="bootstrap3-wysihtml5 form-control" placeholder="Giới thiệu một vài điều về bản thân . . ." style="height: 200px;"><?= "$mydesc"; ?></textarea>
+														<textarea name="about" class="bootstrap3-wysihtml5 form-control" placeholder="Giới thiệu một vài điều về bản thân . . ." style="height: 200px;"><?= "$mydesc" ?></textarea>
 													</div>
 												</div>
 												
@@ -294,11 +364,12 @@
 												<div class="clear"></div>
 												<div class="col-sm-12 mt-10">
 													<button type="submit" class="btn btn-primary">Cập nhật</button>
-													<?php 
-														if ($myavatar == null) {
-														} else { ?>
+													<?php if ($myavatar == null) {
+             } else {
+                  ?>
 															<a onclick = "return confirm('Bạn có muốn xóa ảnh đại diện ?')" class="btn btn-primary btn-inverse" href="app/drop-dp.php">Xóa</a> 
-														<?php } ?>
+														<?php
+             } ?>
 												</div>
 											</div>
 										</form>

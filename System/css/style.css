@@ -3970,6 +3970,7 @@ ul.meta-list li span {
   background: #edf2f2;
   border-radius: 3px;
   padding: 35px 20px 25px;
+  height: 206px;
 }
 
 .top-company-2 {
@@ -3994,6 +3995,7 @@ ul.meta-list li span {
   padding: 20px 30px;
   background: #f7fcfc;
   border-radius: 3px 3px 0 0;
+  width: 260px;
 }
 
 .top-company-2 .image img {
