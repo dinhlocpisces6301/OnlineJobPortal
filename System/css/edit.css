@@ -3,7 +3,7 @@
   font-size: 18px;
 }
 .title {
-  border-left: 5px solid #20262f;
+  border-left: 5px solid #2766c4;
   padding-left: 8px;
 }
 .section-title h3 {
@@ -88,9 +88,138 @@
 
 .company-info .company-size,
 .company-info .website {
-  font-size: 15px;
+  font-size: 18px;
   padding-right: 40px;
 }
 .padbot {
   padding-bottom: 16px;
+}
+.breadcrumb-list a,
+span {
+  font-size: 18px;
+  color: #000;
+}
+.box-header {
+  align-items: center;
+  border-radius: 3px;
+  display: flex;
+  padding: 16px;
+}
+.box-header .company-logo {
+  margin-right: 24px;
+}
+
+.box-header .box-info-job {
+  flex-grow: 1;
+}
+.box-header .box-info-job .job-title {
+  font-size: 22px;
+  line-height: 29px;
+  margin-bottom: 16px;
+}
+h1.job-title {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.box-header .box-info-job .company-title {
+  margin-bottom: 8px;
+}
+
+.box-header .box-info-job .company-title a {
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+}
+.text-center {
+  text-align: center;
+}
+.btn-topcv-primary {
+  background-color: #5491ab;
+  color: #fff;
+}
+.box-header .company-logo .box-company-logo img {
+  max-height: 100% !important;
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 75%;
+}
+.box-header .company-logo .box-company-logo {
+  align-items: center;
+  border: 2px solid #eee;
+  border-radius: 75px;
+  display: flex;
+  height: 110px;
+  overflow: hidden;
+  width: 110px;
+}
+.box-info-job {
+  border-radius: 3px;
+  padding: 16px;
+}
+.box-title {
+  border-left: 7px solid #2766c4;
+  color: #333;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  padding-left: 12px;
+}
+.box-info {
+  background: #09989d0d;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  padding: 16px 16px 0;
+}
+.box-info p {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 16px;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+.box-info .box-main {
+  display: flex;
+  grid-template-columns: 50% 50%;
+  justify-content: space-evenly;
+}
+.box-info .box-main .box-item {
+  display: flex;
+  margin-bottom: 16px;
+}
+.box-info .box-main .box-item img {
+  height: 32px;
+  margin-right: 16px;
+  width: 32px;
+}
+.box-info .box-main .box-item strong {
+  font-weight: 700;
+  color: #000;
+}
+.box-info-job .box-address {
+  background: #09989d0d;
+  border-radius: 3px px;
+  padding: 16px;
+}
+.box-info-job .box-address p {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 16px;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+.box-info-job .job-data h3 {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+strong {
+  color: #000;
+}
+.content-tab {
+  color: #000;
+}
+.dateline {
+  padding: 12px;
+  font-weight: 700;
 }
