@@ -109,6 +109,7 @@ if (isset($_GET['page'])) {
 	
 </head>
 <!--  con ga Huy -->
+<!--  con cho -->
 
 <body class="not-transparent-header">
 	<div class="container-wrapper">
