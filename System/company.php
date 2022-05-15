@@ -129,12 +129,55 @@ if (isset($_GET['page'])) {
 			</div>
 
 			
+<<<<<<< Updated upstream
+=======
+			<div class="company-cover">
+<div class="container">
+<div class="cover-wrapper">
+<img src="https://www.topcv.vn/images/default_cover/default_normal_cover.jpg" width="100%" height="236px" class="img-responsive cover-img">
+</div>
+<div class="company-detail-overview">
+<div id="company-logo">
+<div class="company-image-logo">
+<?php if ($complogo == null) {
+    print '<center>Company Logo Here</center>';
+} else {
+    echo '<center><img alt="image" title="' .
+        $compname .
+        'class="img-responsive" src="data:image/jpeg;base64,' .
+        base64_encode($complogo) .
+        '"/></center>';
+} ?>
+
+</div>
+</div>
+<div class="company-info">
+<h1 class="company-detail-name text-highlight"><?php echo "$compname"; ?></h1>
+<div class="d-flex">
+<p class="website">
+<i class="fa fa-globe"></i>
+<a href="https://<?php echo "$compweb"; ?>" target="_blank"><?php echo "$compweb"; ?></a>
+</p>
+<p class="company-size">
+<i class="fa fa-building" aria-hidden="true"></i>
+
+<?php echo "$comppeopl"; ?>
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+			
+>>>>>>> Stashed changes
 			<div class="section sm">
 			
 				<div class="container">
 				
 					<div class="row">
 						
+<<<<<<< Updated upstream
 							<div class="col-md-10 col-md-offset-1">
 							
 								<div class="company-detail-wrapper">
@@ -177,6 +220,13 @@ if (isset($_GET['page'])) {
 										</ul>
 										
 									</div>
+=======
+							<div class="col-md-12">
+							
+								<div class="company-detail-wrapper">
+								
+									
+>>>>>>> Stashed changes
 						
 									<div class="company-detail-company-overview clearfix">
 									
