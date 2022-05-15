@@ -1,0 +1,96 @@
+.company-detail-company-overview h3 {
+  font-weight: 550 !important;
+  font-size: 18px;
+}
+.title {
+  border-left: 5px solid #20262f;
+  padding-left: 8px;
+}
+.section-title h3 {
+  font-weight: 550 !important;
+  font-size: 18px;
+}
+.box-white {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: -1px 1px 6px rgb(0 0 0 / 5%);
+  margin-bottom: 16px;
+  padding: 24px;
+}
+.breadcrumb {
+  background-color: #e5e5e5;
+}
+.company-cover {
+  margin-bottom: 16px;
+}
+.cover-wrapper {
+  height: 236px;
+  overflow: hidden;
+}
+.img-responsive.cover-img {
+  height: inherit;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}
+.company-detail-overview {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+}
+#company-logo {
+  height: 110px;
+  margin-right: 24px;
+  width: 140px;
+}
+#company-logo .company-image-logo {
+  align-items: center;
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  position: relative;
+  top: -65px;
+  width: 140px;
+}
+#company-logo .company-image-logo .img-responsive {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.company-info {
+  padding-top: 5px;
+  word-break: break-word;
+}
+.company-info .company-detail-name {
+  color: #333;
+  font-size: 24px;
+  margin-top: 0;
+}
+.d-flex {
+  display: flex !important;
+}
+.company-info .website {
+  font-size: 15px;
+  padding-right: 40px;
+}
+.company-info .company-size {
+  white-space: nowrap;
+}
+
+.company-info .company-size,
+.company-info .website {
+  font-size: 15px;
+  padding-right: 40px;
+}
+.padbot {
+  padding-bottom: 16px;
+}

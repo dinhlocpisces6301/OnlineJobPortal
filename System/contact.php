@@ -98,7 +98,7 @@ include 'constants/check-login.php';
 									<div class="col-sm-6">
 									
 										<div class="form-group">
-											<label for="inputName">Your Name <span class="font10 text-danger">(required)</span></label>
+											<label for="inputName">Tên của bạn <span class="font10 text-danger">(bắt buộc)</span></label>
 											<input id="inputName" name="fullname" type="text" class="form-control" data-error="Your name is required" required>
 											<div class="help-block with-errors"></div>
 										</div>
@@ -108,7 +108,7 @@ include 'constants/check-login.php';
 									<div class="col-sm-6">
 									
 										<div class="form-group">
-											<label for="inputEmail">Your Email <span class="font10 text-danger">(required)</span></label>
+											<label for="inputEmail">Email của bạn <span class="font10 text-danger">(bắt buộc)</span></label>
 											<input id="inputEmail" name="email" type="email" class="form-control" data-error="Your email is required and must be a valid email address" required>
 											<div class="help-block with-errors"></div>
 										</div>
@@ -119,7 +119,7 @@ include 'constants/check-login.php';
 									<div class="col-sm-12">
 									
 										<div class="form-group">
-											<label for="inputMessage">Message <span class="font10 text-danger">(required)</span></label>
+											<label for="inputMessage">Lời nhắn<span class="font10 text-danger">(bắt buộc)</span></label>
 											<textarea id="inputMessage" name="message" class="form-control" rows="8" data-minlength="50" data-error="Your message is required and must not less than 50 characters" required></textarea>
 											<div class="help-block with-errors"></div>
 										</div>
@@ -127,7 +127,7 @@ include 'constants/check-login.php';
 									</div>
 									
 									<div class="col-sm-12 text-right">
-										<button type="submit" class="btn btn-primary mt-5">Send Message</button>
+										<button type="submit" class="btn btn-primary mt-5">Gửi</button>
 									</div>
 									
 								</div>
@@ -140,18 +140,18 @@ include 'constants/check-login.php';
 						
 							<ul class="address-list">
 								<li>
-										<h5>Address</h5>
+										<h5>Địa chỉ</h5>
 										<address> Takoradi, <br/> PO.BOX AX40, <br/>School Junction</address>
 								</li>
 								<li>
 										<h5>Email</h5><a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a>
 								</li>
 								<li>
-										<h5>Phone Number</h5><a href="tel:+233 546 607 474">+233 546 607 474</a>
+										<h5>Số diện thoại</h5><a href="tel:+233 546 607 474">+233 546 607 474</a>
 								</li>
 
 								<li>
-										<h5>Social Networks</h5>
+										<h5>Liên hệ qua</h5>
 										<div class="contact-social">
 										
 											<a href="<?= "$fb"; ?>" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>

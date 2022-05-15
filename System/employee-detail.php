@@ -160,16 +160,16 @@ if (isset($_GET['empid'])) {
 										
 										<ul class="meta-list clearfix">
 											<li>
-												<h4 class="heading">Birth Day:</h4>
-												<?= "$bdate"; ?>/<?= "$bmonth"; ?>/<?= "$byear"; ?>
+												<h4 class="heading">Ngày sinh:</h4>
+												<?php echo "$bdate"; ?>/<?php echo "$bmonth"; ?>/<?php echo "$byear"; ?>
 											</li>
 											<li>
-												<h4 class="heading">Age:</h4>
-												<?= "$myage"; ?>-year-old
+												<h4 class="heading">Tuổi:</h4>
+												<?php echo "$myage"; ?> tuổi
 											</li>
 											<li>
-												<h4 class="heading">Education:</h4>
-												<?= "$myedu"; ?> in <?= "$mytitle"; ?>
+												<h4 class="heading">Học vấn:</h4>
+												<?php echo "$myedu"; ?>  <?php echo "$mytitle"; ?>
 											</li>
 											<li>
 												<h4 class="heading">Email: </h4>
@@ -181,7 +181,7 @@ if (isset($_GET['empid'])) {
 						
 									<div class="employee-detail-company-overview mt-40 clearfix">
 									
-										<h3>Introduce my self</h3>
+										<h3>Giới thiệu</h3>
 										
 										<p><?= "$about"; ?></p>
 										
@@ -189,7 +189,7 @@ if (isset($_GET['empid'])) {
 										
 											<div class="col-sm-12">
 											
-												<h3>Education</h3>
+												<h3>Học vấn</h3>
 												
 												<ul class="employee-detail-list">
 												<?php
@@ -240,7 +240,7 @@ if (isset($_GET['empid'])) {
 											
 										</div>
 										
-										<h3>Work Experience</h3>
+										<h3>Kinh nghiệm làm việc</h3>
 											<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -288,55 +288,9 @@ if (isset($_GET['empid'])) {
 										
 							
 										
-										<h3>Training & Workshop</h3>
-												<ul class="employee-detail-list">
-												<?php
-            require 'constants/db_config.php';
-            try {
-                $conn = new PDO(
-                    "mysql:host=$servername;dbname=$dbname",
-                    $username,
-                    $password
-                );
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $stmt = $conn->prepare(
-                    'SELECT * FROM tbl_training WHERE member_no = :empid ORDER BY id'
-                );
-                $stmt->bindParam(':empid', $empid);
-                $stmt->execute();
-                $result = $stmt->fetchAll();
-                $rec = count($result);
-                if ($rec == '0') {
-                } else {
-                    foreach ($result as $row) {
-                        $certificate = $row['certificate']; ?>
-												<li>
-												<h5><?= $row['training']; ?> </h5>
-												<p class="text-muted font-italic"><span class="font600 text-primary"> <?= $row[
-                'institution'
-            ]; ?></span> <?= $row['timeframe']; ?></p>
-												<?php if ($certificate == '') {
-            } else {
-                 ?>
-                                                <p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate-b.php?id=<?= $row[
-                                                    'id'
-                                                ]; ?>">View Certificate</a></p>
-                                                <?php
-            } ?>
-												
-												</li>
-												<?php
-                    }
-                }
-            } catch (PDOException $e) {
-            }
-            ?>
-
 										
-													
-												</ul>
 										
-										<h3>Professional Qualifications</h3>
+										<h3>Trình độ chuyên môn</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -380,7 +334,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 												
 												
-											<h3>Other Attachments</h3>
+											<h3>Thông tin khác</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -419,7 +373,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 										
 										
-										<h3>Language Proficiency</h3>
+										<h3>Trình độ ngoại ngữ</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -460,60 +414,8 @@ if (isset($_GET['empid'])) {
 												</ul>
 										
 										
-										<h3>Referees</h3>
-										<ul class="list-icon">
-												<?php
-            require 'constants/db_config.php';
-            try {
-                $conn = new PDO(
-                    "mysql:host=$servername;dbname=$dbname",
-                    $username,
-                    $password
-                );
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $stmt = $conn->prepare(
-                    'SELECT * FROM tbl_referees WHERE member_no = :empid ORDER BY id'
-                );
-                $stmt->bindParam(':empid', $empid);
-                $stmt->execute();
-                $result = $stmt->fetchAll();
-                $rec = count($result);
-                if ($rec == '0') {
-                } else {
-                    foreach ($result as $row) { ?>
-											<li>
-											
-												<div class="icon">
-												
-													<i class="flaticon-line-icon-set-user-1"></i>
-												
-												</div>
-												
-												<h5><?= $row['ref_name']; ?></h5>
-												<p><?= $row[
-                'ref_title'
-            ]; ?> <span class="font600 text-primary"><?= $row[
-     'institution'
- ]; ?></span></p>
-												<p>Email : <a href="mailto:<?= $row['ref_mail']; ?>"><?= $row[
-    'ref_mail'
-]; ?></a></p>
-												<p>Phone : <a href="tel:<?= $row['ref_phone']; ?>"><?= $row[
-    'ref_phone'
-]; ?></a></p>
-											
-											</li>
-												<?php }
-                }
-            } catch (PDOException $e) {
-            }
-            ?>
 										
-										
-																
-											
-										</ul>
-										
+									
 									</div>
 
 								</div>

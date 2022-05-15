@@ -89,6 +89,8 @@ if (isset($_GET['page'])) {
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
+	<link href="css/edit.css" rel="stylesheet">
+
 
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
@@ -100,6 +102,7 @@ if (isset($_GET['page'])) {
 	<link rel="stylesheet" href="icons/flaticon-streamline-outline/flaticon-streamline-outline.css">
 	<link rel="stylesheet" href="icons/flaticon-thick-icons/flaticon-thick.css">
 	<link rel="stylesheet" href="icons/flaticon-ventures/flaticon-ventures.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
 	<link href="css/style.css" rel="stylesheet">
 
@@ -113,21 +116,46 @@ if (isset($_GET['page'])) {
 			<?php include 'layouts/header.php' ?>
 		</header>
 
-		<div class="main-wrapper">
-		
-			<div class="breadcrumb-wrapper">
-			
-				<div class="container">
+		<div class="main-wrapper breadcrumb">
+		<div class="container" >
 				
-					<ol class="breadcrumb-list booking-step">
-						<li><a href="employers.php">Employers</a></li>
-						<li><span><?= "$compname"; ?></span></li>
-					</ol>
-					
-				</div>
+				<ol class="breadcrumb-list booking-step padbot" >
+					<li><a href="employers.php">Employers</a></li>
+					<li><span><?php echo "$compname"; ?></span></li>
+				</ol>
 				
 			</div>
 
+			
+			<div class="company-cover">
+<div class="container">
+<div class="cover-wrapper">
+<img src="https://www.topcv.vn/images/default_cover/default_normal_cover.jpg" width="100%" height="236px" class="img-responsive cover-img">
+</div>
+<div class="company-detail-overview">
+<div id="company-logo">
+<div class="company-image-logo">
+<img src="https://cdn.topcv.vn/140/company_logos/cong-ty-co-phan-cong-nghe-vft-627336f48719f.jpg" alt="CÔNG TY CỔ PHẦN CÔNG NGHỆ VFT" class="img-responsive">
+</div>
+</div>
+<div class="company-info">
+<h1 class="company-detail-name text-highlight">CÔNG TY CỔ PHẦN CÔNG NGHỆ VFT</h1>
+<div class="d-flex">
+<p class="website">
+<i class="fa-globe"></i>
+<a href="http://www.vft.com.vn/#/" target="_blank">http://www.vft.com.vn/#/</a>
+</p>
+<p class="company-size">
+<i class="fa fa-building" aria-hidden="true"></i>
+
+100-499 nhân viên
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 			
 			<div class="section sm">
 			
@@ -135,11 +163,12 @@ if (isset($_GET['page'])) {
 				
 					<div class="row">
 						
-							<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-12 ">
 							
-								<div class="company-detail-wrapper">
-								
-									<div class="company-detail-header text-center">
+							<div class="company-detail-wrapper">
+
+
+					<div class="company-detail-header box-white text-center">
 										
 										<div class="image">
 										<?php if ($complogo == null) {
@@ -159,16 +188,16 @@ if (isset($_GET['page'])) {
 										
 										<ul class="meta-list clearfix">
 											<li>
-												<h4 class="heading">Established In:</h4>
-												<?= "$compesta"; ?>
+												<h4 class="heading">Năm thành lập</h4>
+												<?php echo "$compesta"; ?>
 											</li>
 											<li>
-												<h4 class="heading">Type:</h4>
-												<?= "$comptype"; ?>
+												<h4 class="heading">Loại hình:</h4>
+												<?php echo "$comptype"; ?>
 											</li>
 											<li>
-												<h4 class="heading">People:</h4>
-												<?= "$comppeopl"; ?>
+												<h4 class="heading">Quy mô:</h4>
+												<?php echo "$comppeopl"; ?>
 											</li>
 											<li>
 												<h4 class="heading">Website: </h4>
@@ -177,30 +206,47 @@ if (isset($_GET['page'])) {
 										</ul>
 										
 									</div>
-						
-									<div class="company-detail-company-overview clearfix">
+
+
+		</div>
+		</div>
+
+
+
+
+
+
+
+
+							<div class="col-md-9 ">
+							
+								<div class="company-detail-wrapper">
+								
 									
-										<h3>Company background</h3>
+						
+									<div class="company-detail-company-overview box-white clearfix">
+									
+										<h3 class="title">Giới thiệu</h3>
 										
 										<p><?= "$compbout"; ?></p>
 
 										
-										<h3>Services</h3>
+										<h3 class="title">Sản phẩm và dịch vụ</h3>
 										
 										<p><?= "$compserv"; ?></p>
 										
-										<h3>Expertise</h3>
+										<h3 class="title">Chuyên môn</h3>
 										
 										<p><?= "$compexp"; ?></p>
 										
 									</div><br><br>
 
 									
-									<div class="section-title mb-40">
+									<div class="section-title box-white  mb-40">
 						
-										<h4 class="text-left">jobs offered at <?= "$compname"; ?></h4>
+										<h3 class="text-left title" >Tuyển dụng </h3>
 										
-									</div>
+									
 
 									<div class="result-list-wrapper">
 									<?php
@@ -282,20 +328,20 @@ if (isset($_GET['page'])) {
 														<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
-																<span>Country:</span>
-																<?= $row['country']; ?>
+																<span>Quốc gia:</span>
+																<?php echo $row['country']; ?>
 															</li>
 															<li>
-																<span>City:</span>
-																<?= $row['city']; ?>
+																<span>Thành phố:</span>
+																<?php echo $row['city']; ?>
 															</li>
 															<li>
-																<span>Experience:</span>
-																<?= $row['experience']; ?>
+																<span>Kinh nghiệm:</span>
+																<?php echo $row['experience']; ?>
 															</li>
 															<li>
-																<span>Deadline: </span>
-																<?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?>
+																<span>Hạn nộp hồ sơ: </span>
+																<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
 															</li>
 														</ul>
 														</div>
@@ -318,7 +364,7 @@ if (isset($_GET['page'])) {
 													<div class="col-sm-5 col-md-4">
 														<a target="_blank" href="explore-job.php?jobid=<?= $row[
                   'job_id'
-              ]; ?>" class="btn btn-primary">View This Job</a>
+              ]; ?>" class="btn btn-primary">Xem thêm</a>
 													</div>
 														
 													</div>
@@ -411,7 +457,7 @@ if (isset($_GET['page'])) {
         ?>
 
 						            </ul>	
-					
+									</div>
 					                </div>
 									
 							</div>
@@ -423,15 +469,16 @@ if (isset($_GET['page'])) {
 				</div>
 			
 			</div>
-
+			</div>
+			
 			<footer class="footer-wrapper">
 				<?php include 'layouts/footer.php' ?>
 			</footer>
 			
-		</div>
 		
-
-	</div>
+		
+			</div>
+		
  
 
 <div id="back-to-top">
