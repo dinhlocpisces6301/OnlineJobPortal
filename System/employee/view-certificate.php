@@ -11,49 +11,38 @@
 
 <body>
 <?php
-require '../constants/db_config.php';
-require 'constants/check-login.php';
-$file_id = $_GET['id'];
+    require '../constants/db_config.php';
+    require 'constants/check-login.php';
+    $file_id = $_GET['id'];
 
-if ($user_online == "true") {
-if ($myrole == "employee") {
-}else{
-header("location:../");		
-}
-}else{
-header("location:../");	
-}
+    if ($user_online == "true") {
+        if ($myrole == "employee") {
+        }
+        else{
+            header("location:../");		
+        }
+    } else {
+        header("location:../");	
+    }
 
-try {
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $conn = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+        $stmt = $conn->prepare("SELECT * FROM tbl_professional_qualification WHERE id = :fileid AND member_no = '$myid'");
+        $stmt->bindParam(':fileid', $file_id);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
 
-	
-$stmt = $conn->prepare("SELECT * FROM tbl_professional_qualification WHERE id = :fileid AND member_no = '$myid'");
-$stmt->bindParam(':fileid', $file_id);
-$stmt->execute();
-$result = $stmt->fetchAll();
-
-foreach($result as $row)
-{
-    $certificate = $row['certificate'];
-	
-	?>
-	<div style="width:100%">
-    <iframe  style="border:none;" src="../ViewerJS/?title=CERTIFICATE#<?php echo 'data:application/pdf;base64,'.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
-
-    </div>
-
-<?php
-}
-
-					  
-}catch(PDOException $e)
-{
-
-}
-
-?>
+        foreach($result as $row)
+        {
+            $certificate = $row['certificate']; ?>
+            <div style="width:100%">
+                <iframe style="border:none;" src="../ViewerJS/?title=CERTIFICATE#<?= 'data:application/pdf;base64, '.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
+            </div>
+            <?php
+        }
+    } catch(PDOException $e){} ?>
 </body>
 
 </html>
