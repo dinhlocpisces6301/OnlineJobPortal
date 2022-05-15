@@ -145,9 +145,11 @@ if (isset($_GET['page'])) {
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 						<?php if ($user_online == true) {
-          				print '
+          print '
 						    <li><a href="logout.php">logout</a></li>
-							<li><a href="'.$myrole .'">Profile</a></li>';
+							<li><a href="' .
+              $myrole .
+              '">Profile</a></li>';
       } else {
           print '
 							<li><a href="login.php">login</a></li>
@@ -212,15 +214,15 @@ if (isset($_GET['page'])) {
 										
 										<ul class="meta-list clearfix">
 											<li>
-												<h4 class="heading">Established In:</h4>
+												<h4 class="heading">Năm thành lập</h4>
 												<?php echo "$compesta"; ?>
 											</li>
 											<li>
-												<h4 class="heading">Type:</h4>
+												<h4 class="heading">Loại hình:</h4>
 												<?php echo "$comptype"; ?>
 											</li>
 											<li>
-												<h4 class="heading">People:</h4>
+												<h4 class="heading">Quy mô:</h4>
 												<?php echo "$comppeopl"; ?>
 											</li>
 											<li>
@@ -233,16 +235,16 @@ if (isset($_GET['page'])) {
 						
 									<div class="company-detail-company-overview clearfix">
 									
-										<h3>Company background</h3>
+										<h3>Giới thiệu</h3>
 										
 										<p><?php echo "$compbout"; ?></p>
 
 										
-										<h3>Services</h3>
+										<h3>Sản phẩm và dịch vụ</h3>
 										
 										<p><?php echo "$compserv"; ?></p>
 										
-										<h3>Expertise</h3>
+										<h3>Chuyên môn</h3>
 										
 										<p><?php echo "$compexp"; ?></p>
 										
@@ -251,7 +253,7 @@ if (isset($_GET['page'])) {
 									
 									<div class="section-title mb-40">
 						
-										<h4 class="text-left">jobs offered at <?php echo "$compname"; ?></h4>
+										<h4 class="text-left">Thông tin tuyển dụng của <?php echo "$compname"; ?></h4>
 										
 									</div>
 
@@ -335,19 +337,19 @@ if (isset($_GET['page'])) {
 														<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
-																<span>Country:</span>
+																<span>Quốc gia:</span>
 																<?php echo $row['country']; ?>
 															</li>
 															<li>
-																<span>City:</span>
+																<span>Thành phố:</span>
 																<?php echo $row['city']; ?>
 															</li>
 															<li>
-																<span>Experience:</span>
+																<span>Kinh nghiệm:</span>
 																<?php echo $row['experience']; ?>
 															</li>
 															<li>
-																<span>Deadline: </span>
+																<span>Hạn nộp hồ sơ: </span>
 																<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
 															</li>
 														</ul>
@@ -371,7 +373,7 @@ if (isset($_GET['page'])) {
 													<div class="col-sm-5 col-md-4">
 														<a target="_blank" href="explore-job.php?jobid=<?php echo $row[
                   'job_id'
-              ]; ?>" class="btn btn-primary">View This Job</a>
+              ]; ?>" class="btn btn-primary">Xem thêm</a>
 													</div>
 														
 													</div>
