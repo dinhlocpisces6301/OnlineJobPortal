@@ -1,12 +1,6 @@
 
 jQuery(function($) {
-
-
-
-	"use strict";
-
-
-	
+	"use strict";	
 	/**
 	 * introLoader - Preloader
 	 */
@@ -23,8 +17,6 @@ jQuery(function($) {
 		}
 	});	
 	
-	
-	
 	/**
 	 * Sticky Header
 	 */
@@ -33,8 +25,6 @@ jQuery(function($) {
 			$(".navbar").toggleClass("navbar-default navbar-sticky");
 			return false;
 	}, { offset: "-20px" });
-	
-	
 	
 	/**
 	 * Main Menu Slide Down Effect
@@ -50,8 +40,6 @@ jQuery(function($) {
 			$(this).find('ul').first().stop(true, true).delay(100).slideUp(150, 'easeInOutQuad');
 	});
 	
-	
-	
 	/**
 	 * Effect to Bootstrap Dropdown
 	 */
@@ -61,8 +49,6 @@ jQuery(function($) {
 	$('.bt-dropdown-click').on('hide.bs.dropdown', function(e) { 
 		$(this).find('.dropdown-menu').first().stop(true, true).slideUp(250, 'easeInOutQuad'); 
 	});
-	
-	
 	
 	/**
 	 * Icon Change on Collapse
@@ -74,8 +60,6 @@ jQuery(function($) {
 	.on('hide.bs.collapse', function(a) {
 		$(a.target).prev('.panel-heading').removeClass('active');
 	});
-	
-	
 	
 	/**
 	 * Slicknav - a Mobile Menu
@@ -92,8 +76,6 @@ jQuery(function($) {
 		label:"" 
 	});
 	
-	
-	
 	/**
 	 * Smooth scroll to anchor
 	 */
@@ -109,8 +91,6 @@ jQuery(function($) {
 			}
 		}
 	});
-	
-	
 	
 	/**
 	 * Another Bootstrap Toggle
@@ -130,8 +110,6 @@ jQuery(function($) {
 		}
 	});
 	
-
-	
 	/**
 	 *  Arrow for Menu has sub-menu
 	 */
@@ -142,8 +120,6 @@ jQuery(function($) {
 	if ($(window).width() > 992) {
 		$(".navbar-arrow ul ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-right'></i>");
 	}
-	
-	
 	
 	/**
 	 * Back To Top
@@ -160,8 +136,6 @@ jQuery(function($) {
 			return false;
 	});
 	
-	
-	
 	/**
 	 * Bootstrap Tooltip
 	 */
@@ -169,15 +143,11 @@ jQuery(function($) {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
 	
-	
-	
 	/**
 	 * Placeholder
 	 */
 	$("input, textarea").placeholder();
 
-
-	
 	/**
 	 * Latest Job Ticker
 	 */
@@ -185,8 +155,6 @@ jQuery(function($) {
 		visible: 1,
 		interval: 4000
 	});
-	
-	
 	
 	/**
 	 * Responsive Grid
@@ -223,14 +191,10 @@ jQuery(function($) {
 		}
 	});
 	
-	
-	
 	/**
 	 * Counter - Number animation
 	 */
 	$(".counter").countimator();
-	
-	
 	
 	/**
 	 * Price Range Slider
@@ -245,8 +209,6 @@ jQuery(function($) {
 		prefix: "$"
 	});
 	
-	
-	
 	/**
 	 * Custom File input
 	 */
@@ -254,15 +216,11 @@ jQuery(function($) {
 		buttonText : 'Choose your file'
 	});
 	
-	
-	
 	/**
 	 * WYSIHTML5 -  A better approach to rich text editing
 	 */
 	$('.bootstrap3-wysihtml5').wysihtml5({});
 
-	
-	
 	/**
 	 * Tokenfield for Bootstrap
 	 * http://sliptree.github.io/bootstrap-tokenfield/

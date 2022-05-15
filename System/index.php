@@ -3,6 +3,7 @@
 <?php
 	include 'constants/settings.php';
 	include 'constants/check-login.php';
+	$title = "Trang chủ";
 ?>
 <head>
 
@@ -26,7 +27,7 @@
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 
 
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">	
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">	
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
@@ -63,78 +64,7 @@
 
 	<div class="container-wrapper">
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-				<div class="container">
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="./"><img src="images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-						<ul class="nav navbar-nav" id="responsive-menu">
-							<li>
-								<a href="./">Trang chủ</a>
-							</li>
-							
-							<li>
-								<a href="job-list.php">Danh sách</a>
-							</li>
-							
-							<li>
-								<a href="employers.php">Nhà Tuyển Dụng</a>
-							</li>
-							
-							<li>
-								<a href="employees.php">Ứng Viên</a>
-							</li>
-							
-							<li>
-								<a href="contact.php">Liên hệ</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<?php if ($user_online == true) {
-          					print '
-							    <li><a href="logout.php">Đăng xuất</i></a></li>
-								<li><a href="'.$myrole.'">Hồ sơ</a></li>';
-      						} else {
-          					print '
-								<li><a href="login.php">Đăng nhập</i></a></li>
-								<li><a data-toggle="modal" href="#registerModal">Đăng kí</a></li>';
-      						} ?>
-						</ul>
-					</div>	
-				</div>
-
-				<div id="slicknav-mobile"></div>
-			</nav>
-
-			
-			<div id="registerModal" class="modal fade login-box-wrapper" tabindex="-1" style="display: none;" data-backdrop="static" data-keyboard="false" data-replace="true">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">THAM GIA NGAY</h4>
-				</div>
-				
-				<div class="modal-body">
-					<div class="row gap-20">
-						<!-- <div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div> -->
-						<div class="col-sm col-md">
-							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Đăng Kí</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="modal-footer text-center">
-					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Đóng</button>
-				</div>
-			</div>
+  			<?php include 'layouts/header.php'; ?>
 		</header>
 
 		<div class="main-wrapper">
@@ -411,65 +341,7 @@
 		</div>
 
 			<footer class="footer-wrapper">
-				<div class="main-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12 col-md-9">
-								<div class="row">
-									<div class="col-sm-6 col-md-4">
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Night Jobs</h5>
-											<p>Night Jobs is a job portal, online job management system.</p>
-										</div>
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title"></h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="./">Trang chủ</a></li>
-											<li><a href="job-list.php">Danh sách</a></li>
-											<li><a href="employers.php">Nhà tuyển dụng</a></li>
-											<li><a href="employees.php">Ứng viên</a></li>
-											<li><a href="contact.php">Liên hệ</a></li>
-											<!-- <li><a href="#">Go to top</a></li> -->
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-								<h5 class="footer-title">Thông tin liên hệ</h5>
-								<p>Address: ĐH Giao thông vận tải TP HCM</p>
-								<p>Email: <a href="">DHGTVHCM@gmail.com</a></p>
-								<p>Phone: <a href="">123 456 789 10</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="bottom-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-4 col-md-4">
-								<p class="copy-right">&#169; Copyright <?=date('Y');?></p>
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu">
-									<li><a></a></li>
-								</ul>
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?= "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?= "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?= "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php include 'layouts/footer.php' ?>
 			</footer>
 		</div>
 	</div>

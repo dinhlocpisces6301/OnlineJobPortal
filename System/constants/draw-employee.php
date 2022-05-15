@@ -8,11 +8,7 @@
 <div class="modal-body">
 																
 <div class="row gap-20">
-											
-
-												
-
-												
+																																
 <div class="col-sm-12 col-md-12">
 
 <div class="form-group"> 

@@ -100,13 +100,13 @@ if ($today_date > $conv_date) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - <?php echo "$jobtitle"; ?></title>
+	<title>Nightingale Jobs - <?= "$jobtitle"; ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -172,105 +172,11 @@ if ($today_date > $conv_date) {
 </head>
 
 <body class="not-transparent-header">
-
 	<div class="container-wrapper">
-
-
 		<header id="header">
-
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="./"><img src="images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="./">Trang chủ</a>
-								
-							</li>
-							
-							<li>
-								<a href="job-list.php">Danh sách</a>
-
-							</li>
-							
-							<li>
-								<a href="employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="contact.php">Liên hê</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-						<?php if ($user_online == true) {
-          print '
-						    <li><a href="logout.php">logout</a></li>
-							<li><a href="' .
-              $myrole .
-              '">Profile</a></li>';
-      } else {
-          print '
-							<li><a href="login.php">login</a></li>
-							<li><a data-toggle="modal" href="#registerModal">register</a></li>';
-      } ?>
-
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
-		</header>
-			<div id="registerModal" class="modal fade login-box-wrapper" tabindex="-1" style="display: none;" data-backdrop="static" data-keyboard="false" data-replace="true">
-			
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Create your account for free</h4>
-				</div>
-				
-				<div class="modal-body">
-				
-					<div class="row gap-20">
-					
-						<div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div>
-						<div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
-						</div>
-
-					</div>
-				
-				</div>
-				
-				<div class="modal-footer text-center">
-					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Close</button>
-				</div>
-				
-			</div>
+			<?php include 'layouts/header.php' ?>
+		</header>	
+		
 		<div class="main-wrapper">
 		
 			<div class="breadcrumb-wrapper">
@@ -279,8 +185,8 @@ if ($today_date > $conv_date) {
 				
 					<ol class="breadcrumb-list booking-step">
 						<li><a href="job-list.php">All jobs</a></li>
-						<li><a target="_blank" href="company.php?ref=<?php echo "$compid"; ?>"><?php echo "$compname"; ?></a></li>
-						<li><span><?php echo "$jobtitle"; ?></span></li>
+						<li><a target="_blank" href="company.php?ref=<?= "$compid"; ?>"><?= "$compname"; ?></a></li>
+						<li><span><?= "$jobtitle"; ?></span></li>
 					</ol>
 					
 				</div>
@@ -299,29 +205,29 @@ if ($today_date > $conv_date) {
 							
 								<div class="job-detail-header text-center">
 											
-									<h2 class="heading mb-15"><?php echo "$jobtitle"; ?></h2>
+									<h2 class="heading mb-15"><?= "$jobtitle"; ?></h2>
 								
 									<div class="meta-div clearfix mb-25">
-										<span>at <a target="_blank" href="company.php?ref=<?php echo "$compid"; ?>"><?php echo "$compname"; ?></a> as </span>
-										<?php echo "$sta"; ?>
+										<span>at <a target="_blank" href="company.php?ref=<?= "$compid"; ?>"><?= "$compname"; ?></a> as </span>
+										<?= "$sta"; ?>
 									</div>
 									
 									<ul class="meta-list clearfix">
 										<li>
 											<h4 class="heading">Location:</h4>
-											<?php echo "$jobcity"; ?> , <?php echo "$jobcountry"; ?>
+											<?= "$jobcity"; ?> , <?= "$jobcountry"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Deadline:</h4>
-											<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
+											<?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Experience</h4>
-											<?php echo "$experience"; ?> 
+											<?= "$experience"; ?> 
 										</li>
 										<li>
 											<h4 class="heading">Posted: </h4>
-											<?php echo "$opendate"; ?>
+											<?= "$opendate"; ?>
 										</li>
 									</ul>
 									
@@ -342,7 +248,7 @@ if ($today_date > $conv_date) {
           } ?>
 									</div>
 									
-									<p><?php echo "$compbout"; ?></p>
+									<p><?= "$compbout"; ?></p>
 									
 								</div>
 								
@@ -350,15 +256,15 @@ if ($today_date > $conv_date) {
 								
 									<h3>Job Description</h3>
 
-									<p><?php echo "$jobdescription"; ?></p>
+									<p><?= "$jobdescription"; ?></p>
 
 									
 									<h3>Job Responsibilities</h3>
 									
-                                    <p><?php echo "$jobrespo"; ?></p>
+                                    <p><?= "$jobrespo"; ?></p>
 									
 									<h3>Requirements:</h3>
-                                    <p><?php echo "$jobreq"; ?></p>
+                                    <p><?= "$jobreq"; ?></p>
 								
 								</div>
 								
@@ -386,7 +292,7 @@ if ($today_date > $conv_date) {
 								<div class="tab-style-01">
 								
 									<ul class="nav" role="tablist">
-										<li role="presentation" class="active"><h4><a href="#relatedJob1" role="tab" data-toggle="tab">More jobs from <?php echo "$compname"; ?></a></h4></li>
+										<li role="presentation" class="active"><h4><a href="#relatedJob1" role="tab" data-toggle="tab">More jobs from <?= "$compname"; ?></a></h4></li>
 									</ul>
 
 									<div class="tab-content">
@@ -442,7 +348,7 @@ if ($today_date > $conv_date) {
 									</div>';
                }
                ?>
-																											<a href="explore-job.php?jobid=<?php echo $row[
+																											<a href="explore-job.php?jobid=<?= $row[
                                'job_id'
                            ]; ?>" class="recent-job-item clearfix">
 														<div class="GridLex-grid-middle">
@@ -460,19 +366,19 @@ if ($today_date > $conv_date) {
                   } ?>
 																	</div>
 																	<div class="content">
-																		<h4><?php echo $row['title']; ?></h4>
-																		<p><?php echo "$compname"; ?></p>
+																		<h4><?= $row['title']; ?></h4>
+																		<p><?= "$compname"; ?></p>
 																	</div>
 																</div>
 															</div>
 															<div class="GridLex-col-3_sm-8-xs-8_xss-12 mt-10-xss">
 																<div class="job-location">
-																	<i class="fa fa-map-marker text-primary"></i> <?php echo $row['country']; ?>
+																	<i class="fa fa-map-marker text-primary"></i> <?= $row['country']; ?>
 																</div>
 															</div>
 															<div class="GridLex-col-3_sm-4_xs-4_xss-12">
-                                                             <?php echo "$sta"; ?>
-																<span class="font12 block spacing1 font400 text-center"> Due - <?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?></span>
+                                                             <?= "$sta"; ?>
+																<span class="font12 block spacing1 font400 text-center"> Due - <?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?></span>
 															</div>
 														</div>
 													</a>
@@ -507,99 +413,7 @@ if ($today_date > $conv_date) {
 			</div>
 
 			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="./">Trang chủ</a></li>
-											<li><a href="job-list.php">Danh sách</a></li>
-											<li><a href="employers.php">Employers</a></li>
-											<li><a href="employees.php">Employees</a></li>
-											<li><a href="contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-								<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+				<?php include 'layouts/footer.php' ?>
 			</footer>
 			
 		</div>
