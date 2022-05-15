@@ -16,7 +16,7 @@
 <div class="col-sm-12 col-md-12">
 
 <div class="form-group"> 
-<label>Tên Công Ty</label>
+<label>Company Name</label>
 <input class="form-control" placeholder="Enter your company name" name="company" required type="text"> 
 </div>
 												
@@ -25,8 +25,8 @@
 <div class="col-sm-12 col-md-12">
 
 <div class="form-group"> 
-<label>Loại hình</label>
-<input class="form-control" placeholder=" Booking/Travel, Computer Software etc" name="type" required type="text"> 
+<label>Company Type</label>
+<input class="form-control" placeholder="Eg: Booking/Travel, Computer Software etc" name="type" required type="text"> 
 </div>
 												
 </div>
@@ -34,7 +34,7 @@
 <div class="col-sm-12 col-md-12">
 
 <div class="form-group"> 
-<label>Email </label>
+<label>Email Address</label>
 <input class="form-control" placeholder="Enter your email address" name="email" required type="text"> 
 </div>
 												
@@ -43,7 +43,7 @@
 <div class="col-sm-12 col-md-12">
 												
 <div class="form-group"> 
-<label>Mật khẩu</label>
+<label>Password</label>
 <input class="form-control" placeholder="Min 8 and Max 20 characters" name="password" required type="password"> 
 </div>
 												
@@ -52,7 +52,7 @@
 <div class="col-sm-12 col-md-12">
 												
 <div class="form-group"> 
-<label>Xác Nhận Mật Khẩu</label>
+<label>Password Confirmation</label>
 <input class="form-control" placeholder="Re-type password again" name="confirmpassword" required type="password"> 
 </div>
 												

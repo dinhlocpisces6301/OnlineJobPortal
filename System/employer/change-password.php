@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-<?php
-include '../constants/settings.php';
+<?php 
+include '../constants/settings.php'; 
 include 'constants/check-login.php';
 
-if ($user_online == 'true') {
-    if ($myrole == 'employer') {
-    } else {
-        header('location:../');
-    }
-} else {
-    header('location:../');
+if ($user_online == "true") {
+if ($myrole == "employer") {
+}else{
+header("location:../");		
+}
+}else{
+header("location:../");	
 }
 ?>
 <head>
@@ -120,7 +120,19 @@ if ($user_online == 'true') {
 
 		<div class="main-wrapper">
 		
-		
+			<div class="breadcrumb-wrapper">
+			
+				<div class="container">
+				
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="../">Bwire Jobs</a></li>
+						<li><span>Change Password</span></li>
+					</ol>
+					
+				</div>
+				
+			</div>
+
 			
 			<div class="admin-container-wrapper">
 
@@ -138,15 +150,13 @@ if ($user_online == 'true') {
 									<div class="admin-user-item for-employer">
 										
 										<div class="image">
-										<?php if ($logo == null) {
-              print '<center>Company Logo Here</center>';
-          } else {
-              echo '<center><img alt="image" title="' .
-                  $compname .
-                  '" width="180" height="100" src="data:image/jpeg;base64,' .
-                  base64_encode($logo) .
-                  '"/></center>';
-          } ?><br>
+										<?php 
+										if ($logo == null) {
+										print '<center>Company Logo Here</center>';
+										}else{
+										echo '<center><img alt="image" title="'.$compname.'" width="180" height="100" src="data:image/jpeg;base64,'.base64_encode($logo).'"/></center>';	
+										}
+										?><br>
 										</div>
 										
 										<h4><?php echo "$compname"; ?></h4>
@@ -188,7 +198,7 @@ if ($user_online == 'true') {
 
 									<div class="admin-section-title">
 									
-										<h2>Đổi mật khẩu</h2>
+										<h2>Change Password</h2>
 										
 									</div>
 									
@@ -200,7 +210,7 @@ if ($user_online == 'true') {
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Mật khẩu mới</label>
+														<label>New Password</label>
 														<input type="password" class="form-control" name="password" required placeholder="Enter your new password">
 													</div>
 													
@@ -211,7 +221,7 @@ if ($user_online == 'true') {
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Xác nhận</label>
+														<label>Confirm Password</label>
 														<input type="password" class="form-control"  name="confirmpassword" required placeholder="Confirm your new password">
 													</div>
 													
@@ -306,9 +316,7 @@ if ($user_online == 'true') {
 							<div class="col-sm-4 col-md-4">
 					
 								
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
+								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Nightingale Vision Software</p>
 								
 							</div>
 							
@@ -350,26 +358,25 @@ if ($user_online == 'true') {
 function check_passwords(){
 if(frm.password.value == "")
 {
-	alert("
-Nhập mật khẩu.");
+	alert("Enter the Password.");
 	frm.password.focus(); 
 	return false;
 }
 if((frm.password.value).length < 8)
 {
-	alert("Mật khẩu phải có tối thiểu 8 ký tự");
+	alert("Password should be minimum 8 characters.");
 	frm.password.focus();
 	return false;
 }
 
 if(frm.confirmpassword.value == "")
 {
-	alert("Nhập mật khẩu xác nhận.");
+	alert("Enter the Confirmation Password.");
 	return false;
 }
 if(frm.confirmpassword.value != frm.password.value)
 {
-	alert("Xác nhận mật khẩu không khớp.");
+	alert("Password confirmation does not match.");
 	return false;
 }
 

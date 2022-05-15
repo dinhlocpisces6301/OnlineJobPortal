@@ -121,7 +121,7 @@ if (isset($_GET['page'])) {
 		<div class="container" >
 				
 				<ol class="breadcrumb-list booking-step padbot" >
-					<li><a href="employers.php">Nhà tuyển dụng</a></li>
+					<li><a href="employers.php">Employers</a></li>
 					<li><span><?php echo "$compname"; ?></span></li>
 				</ol>
 				
@@ -274,15 +274,15 @@ if (isset($_GET['page'])) {
 												
 													<div class="row">
 													
-														<div class="col-sm-7 col-md-8 cont">
+														<div class="col-sm-7 col-md-8">
 														
 															<h4 class="heading"><?= $row['title'] ?></h4>
 															<div class="meta-div clearfix mb-25">
-															<span>Tại <a href="company.php?ref=<?= "$company_id" ?>"><?= "$compname" ?></a></span>
+															<span>at <a href="company.php?ref=<?= "$company_id" ?>"><?= "$compname" ?></a></span>
 															<?= "$sta" ?>
 															</div>
 															
-															
+															<p class="texing"><?= $row['description'] ?></p>
 														</div>
 														
 														<div class="col-sm-5 col-md-4">

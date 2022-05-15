@@ -96,7 +96,7 @@
 }
 .breadcrumb-list a,
 span {
-  font-size: 14px;
+  font-size: 18px;
   color: #000;
 }
 .box-header {
@@ -222,13 +222,4 @@ strong {
 .dateline {
   padding: 12px;
   font-weight: 700;
-}
-#group-header {
-  height: 180px;
-  padding: 0 30px;
-  margin-bottom: 15mm;
-}
-.fix_h {
-  margin-top: 0px !important;
-  background-color: #f1f2f6;
 }

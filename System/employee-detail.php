@@ -55,13 +55,13 @@ if (isset($_GET['empid'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - <?= "$myfname" ?> <?= "$mylname" ?></title>
+	<title>Nightingale Jobs - <?= "$myfname"; ?> <?= "$mylname"; ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -80,7 +80,7 @@ if (isset($_GET['empid'])) {
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
-    <link href="css/edit.css" rel="stylesheet">
+	
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
@@ -112,19 +112,19 @@ if (isset($_GET['empid'])) {
 	<div class="container-wrapper">
 
 		<header id="header">
-			<?php include 'layouts/header.php'; ?>
+			<?php include 'layouts/header.php' ?>
 		</header>
 
 
-		<div class="main-wrapper" style="background-color: #f1f2f6">
+		<div class="main-wrapper">
 
 			<div class="breadcrumb-wrapper">
 			
 				<div class="container">
 				
 					<ol class="breadcrumb-list booking-step">
-						<li><a href="employees.php">Tất cả ứng viên</a></li>
-						<li><span><?= "$myfname" ?> <?= "$mylname" ?></span></li>
+						<li><a href="employees.php">All Employees</a></li>
+						<li><span><?= "$myfname"; ?> <?= "$mylname"; ?></span></li>
 					</ol>
 					
 				</div>
@@ -139,9 +139,9 @@ if (isset($_GET['empid'])) {
 						
 							<div class="col-md-10 col-md-offset-1">
 							
-								<div class="employee-detail-wrapper ">
+								<div class="employee-detail-wrapper">
 								
-									<div class="employee-detail-header text-center box-white ">
+									<div class="employee-detail-header text-center">
 										
 										<div class="image">
 										<?php if ($empavatar == null) {
@@ -153,9 +153,9 @@ if (isset($_GET['empid'])) {
           } ?>
 										</div>
 										
-										<h2 class="heading mb-15"><?= "$myfname" ?> <?= "$mylname" ?></h2>
+										<h2 class="heading mb-15"><?= "$myfname"; ?> <?= "$mylname"; ?></h2>
 									
-										<p class="location"><i class="fa fa-map-marker"></i> <?= "$mycountry" ?>, <?= "$mycity" ?><span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$myphone" ?></p>
+										<p class="location"><i class="fa fa-map-marker"></i> <?= "$mycountry"; ?>, <?= "$mycity"; ?><span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$myphone"; ?></p>
 										
 										
 										<ul class="meta-list clearfix">
@@ -173,26 +173,23 @@ if (isset($_GET['empid'])) {
 											</li>
 											<li>
 												<h4 class="heading">Email: </h4>
-												<?= "$mymail" ?>
+												<?= "$mymail"; ?>
 											</li>
 										</ul>
 										
 									</div>
 						
-									<div class="employee-detail-company-overview mt-40 box-white clearfix">
+									<div class="employee-detail-company-overview mt-40 clearfix">
 									
+										<h3>Giới thiệu</h3>
 										
+										<p><?= "$about"; ?></p>
 										
 										<div class="row">
-                                        <div class="col-sm-12">
-                                        <h3 class="title" >Giới thiệu</h3>
-										
-										<p><?= "$about" ?></p>
-        </div>
 										
 											<div class="col-sm-12">
 											
-												<h3 class="title">Học vấn</h3>
+												<h3>Học vấn</h3>
 												
 												<ul class="employee-detail-list">
 												<?php
@@ -215,15 +212,17 @@ if (isset($_GET['empid'])) {
                 } else {
                     foreach ($result as $row) { ?>
 												<li>
-												<h5><?= $row['course'] ?> </h5>
-												<p class="text-muted font-italic">Level - <?= $row['level'] ?> , <?= $row[
+												<h5><?= $row['course']; ?> </h5>
+												<p class="text-muted font-italic">Level - <?= $row[
+                'level'
+            ]; ?> , <?= $row[
      'timeframe'
- ] ?><span class="font600 text-primary"> <?= $row[
+ ]; ?><span class="font600 text-primary"> <?= $row[
     'institution'
-] ?></span> <?= $row['country'] ?></p>
+]; ?></span> <?= $row['country']; ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate.php?id=<?= $row[
                 'id'
-            ] ?>">View Certificate</a></p>
+            ]; ?>">View Certificate</a></p>
 												</li>
 												<?php }
                 }
@@ -241,7 +240,7 @@ if (isset($_GET['empid'])) {
 											
 										</div>
 										
-										<h3 class="title fix_h">Kinh nghiệm làm việc</h3>
+										<h3>Kinh nghiệm làm việc</h3>
 											<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -263,15 +262,19 @@ if (isset($_GET['empid'])) {
                 } else {
                     foreach ($result as $row) { ?>
 												<li>
-												<h5><?= $row['title'] ?> </h5>
-												<p class="text-muted font-italic"><?= $row['start_date'] ?> to <?= $row[
+												<h5><?= $row['title']; ?> </h5>
+												<p class="text-muted font-italic"><?= $row[
+                'start_date'
+            ]; ?> to <?= $row[
      'end_date'
- ] ?><span class="font600 text-primary"> <?= $row['institution'] ?></span></p>
+ ]; ?><span class="font600 text-primary"> <?= $row[
+    'institution'
+]; ?></span></p>
 												<p>Supervisor : <span class="font600 text-primary"> <?= $row[
                 'supervisor'
-            ] ?></span> , Phone : <span class="font600 text-primary"> <?= $row[
+            ]; ?></span> , Phone : <span class="font600 text-primary"> <?= $row[
     'supervisor_phone'
-] ?></span> <br><?= $row['duties'] ?></p>
+]; ?></span> <br><?= $row['duties']; ?></p>
 												</li>
 												<?php }
                 }
@@ -287,7 +290,7 @@ if (isset($_GET['empid'])) {
 										
 										
 										
-										<h3 class="title fix_h">Trình độ chuyên môn</h3>
+										<h3>Trình độ chuyên môn</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -310,15 +313,15 @@ if (isset($_GET['empid'])) {
                     foreach ($result as $row) {
                         $certificate = $row['certificate']; ?>
 											    <li>
-												<h5><?= $row['title'] ?> </h5>
+												<h5><?= $row['title']; ?> </h5>
 												<p class="text-muted font-italic"><?= $row[
                 'timeframe'
-            ] ?><span class="font600 text-primary"> <?= $row[
+            ]; ?><span class="font600 text-primary"> <?= $row[
     'institution'
-] ?></span> <?= $row['country'] ?></p>
+]; ?></span> <?= $row['country']; ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate-c.php?id=<?= $row[
                 'id'
-            ] ?>">View Certificate</a></p>
+            ]; ?>">View Certificate</a></p>
 												</li>
 												<?php
                     }
@@ -331,7 +334,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 												
 												
-											<h3 class="title fix_h">Thông tin khác</h3>
+											<h3>Thông tin khác</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -353,11 +356,11 @@ if (isset($_GET['empid'])) {
                 } else {
                     foreach ($result as $row) { ?>
 												<li>
-												<h5><?= $row['title'] ?> </h5>
-												<p class="font600 text-primary"><?= $row['issuer'] ?></p>
+												<h5><?= $row['title']; ?> </h5>
+												<p class="font600 text-primary"><?= $row['issuer']; ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-attachment.php?id=<?= $row[
                 'id'
-            ] ?>">View Attachment</a></p>
+            ]; ?>">View Attachment</a></p>
 												</li>
 												<?php }
                 }
@@ -370,7 +373,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 										
 										
-										<h3 class="title fix_h">Trình độ ngoại ngữ</h3>
+										<h3>Trình độ ngoại ngữ</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -392,14 +395,14 @@ if (isset($_GET['empid'])) {
                 } else {
                     foreach ($result as $row) { ?>
 												<li>
-												<h5><?= $row['language'] ?> </h5>
+												<h5><?= $row['language']; ?> </h5>
 												<p class="text-muted font-italic">Speaking <span class="font600 text-primary"> <?= $row[
                 'speak'
-            ] ?></span> , Reading <span class="font600 text-primary"> <?= $row[
+            ]; ?></span> , Reading <span class="font600 text-primary"> <?= $row[
     'reading'
-] ?></span> , Writing <span class="font600 text-primary"> <?= $row[
+]; ?></span> , Writing <span class="font600 text-primary"> <?= $row[
     'writing'
-] ?></span></p>
+]; ?></span></p>
 												</li>
 												<?php }
                 }
@@ -429,7 +432,7 @@ if (isset($_GET['empid'])) {
 			</div>
 
 			<footer class="footer-wrapper">				
-				<?php include 'layouts/footer.php'; ?>
+				<?php include 'layouts/footer.php' ?>
 			</footer>
 		
 	</div>

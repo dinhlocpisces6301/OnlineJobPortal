@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <?php
-include 'constants/settings.php';
-include 'constants/check-login.php';
-$title = 'Trang chủ';
+	include 'constants/settings.php';
+	include 'constants/check-login.php';
+	$title = "Trang chủ";
 ?>
 <head>
 
@@ -16,8 +16,8 @@ $title = 'Trang chủ';
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -68,7 +68,7 @@ $title = 'Trang chủ';
 		</header>
 
 		<div class="main-wrapper">
-			<div class="hero" style="background-image:url('https://therohani.com/wp-content/uploads/2021/06/daftar-bank-muamalat-online.png');">
+			<div class="hero" style="background-image:url('https://stockdep.net/files/images/80031090.jpg');">
 				<div class="container">
 					<h1>Tương Lai Tươi Sáng Của Bạn </h1>
 
@@ -82,30 +82,28 @@ $title = 'Trang chủ';
 										<select class="form-control" name="category" required>
 											<option value="">Tất cả Công việc</option>
 											<?php
-           require 'constants/db_config.php';
-           try {
-               $conn = new PDO(
-                   "mysql:host=$servername;dbname=$dbname",
-                   $username,
-                   $password
-               );
-               $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+												require 'constants/db_config.php';
+												try {
+													$conn = new PDO(
+														"mysql:host=$servername;dbname=$dbname",
+														$username,
+														$password
+													);
+													$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-               $stmt = $conn->prepare(
-                   'SELECT * FROM tbl_categories ORDER BY category'
-               );
-               $stmt->execute();
-               $result = $stmt->fetchAll();
+													$stmt = $conn->prepare(
+														'SELECT * FROM tbl_categories ORDER BY category'
+													);
+													$stmt->execute();
+													$result = $stmt->fetchAll();
 
-               foreach ($result as $row) { ?>
-														<option style="color:black" value="<?= $row['category'] ?>">
-															<?= $row['category'] ?>
+													foreach ($result as $row) { ?>
+														<option style="color:black" value="<?= $row['category']; ?>">
+															<?= $row['category']; ?>
 														</option>
 													<?php }
-               $stmt->execute();
-           } catch (PDOException $e) {
-           }
-           ?>
+													$stmt->execute();
+												} catch (PDOException $e) {}?>
 										</select>
 									</div>
 									
@@ -113,30 +111,29 @@ $title = 'Trang chủ';
 										<select class="form-control"  name="country" required>
 											<option value="">Tất cả Quốc gia</option>
 											<?php
-           require 'constants/db_config.php';
-           try {
-               $conn = new PDO(
-                   "mysql:host=$servername;dbname=$dbname",
-                   $username,
-                   $password
-               );
-               $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+												require 'constants/db_config.php';
+												try {
+													$conn = new PDO(
+														"mysql:host=$servername;dbname=$dbname",
+														$username,
+														$password
+													);
+													$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-               $stmt = $conn->prepare(
-                   'SELECT * FROM tbl_countries ORDER BY country_name'
-               );
-               $stmt->execute();
-               $result = $stmt->fetchAll();
+													$stmt = $conn->prepare(
+														'SELECT * FROM tbl_countries ORDER BY country_name'
+													);
+													$stmt->execute();
+													$result = $stmt->fetchAll();
 
-               foreach ($result as $row) { ?>						
-														<option style="color:black" value="<?= $row['country_name'] ?> ">
-															<?= $row['country_name'] ?>
+													foreach ($result as $row) { ?>						
+														<option style="color:black" value="<?= $row['country_name']; ?> ">
+															<?= $row['country_name']; ?>
 														</option>
 													<?php }
-               $stmt->execute();
-           } catch (PDOException $e) {
-           }
-           ?>
+													$stmt->execute();
+												} catch (PDOException $e) {}
+										?>
 										</select>
 									</div>
 								</div>
@@ -209,43 +206,38 @@ $title = 'Trang chủ';
 					
 					<div class="row top-company-wrapper with-bg">
 					<?php
-     require 'constants/db_config.php';
-     try {
-         $conn = new PDO(
-             "mysql:host=$servername;dbname=$dbname",
-             $username,
-             $password
-         );
-         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						require 'constants/db_config.php';
+						try {
+							$conn = new PDO(
+								"mysql:host=$servername;dbname=$dbname",
+								$username,
+								$password
+							);
+							$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-         $stmt = $conn->prepare(
-             "SELECT * FROM tbl_users WHERE role = 'employer' ORDER BY rand() LIMIT 8"
-         );
-         $stmt->execute();
-         $result = $stmt->fetchAll();
+							$stmt = $conn->prepare(
+								"SELECT * FROM tbl_users WHERE role = 'employer' ORDER BY rand() LIMIT 8"
+							);
+							$stmt->execute();
+							$result = $stmt->fetchAll();
 
-         foreach ($result as $row) {
-             $complogo = $row['avatar']; ?>
+							foreach ($result as $row) {
+								$complogo = $row['avatar']; ?>
 										<div class="col-xss-12 col-xs-6 col-sm-4 col-md-3">	
 											<div class="top-company">
 												<div class="image">	
 													<?php if ($complogo == null) {
-                 echo '<center><img class="autofit2" alt="image" src="images/blank.png"/></center>';
-             } else {
-                 echo '<center><img class="autofit2" alt="image" src="data:image/jpeg;base64,' .
-                     base64_encode($complogo) .
-                     '"/></center>';
-             } ?>
+														echo '<center><img class="autofit2" alt="image" src="images/blank.png"/></center>';
+													} else {
+														echo '<center><img class="autofit2" alt="image" src="data:image/jpeg;base64,' .base64_encode($complogo).'"/></center>';
+													} ?>
 												</div>
-													<h6><?= $row['first_name'] ?></h6>
-													<a target="_blank" href="company.php?ref=<?= $row['member_no'] ?>">Xem thêm</a>
+													<h6><?= $row['first_name']; ?></h6>
+													<a target="_blank" href="company.php?ref=<?= $row['member_no']; ?>">Xem thêm</a>
 											</div>
 										</div>
-							<?php
-         }
-     } catch (PDOException $e) {
-     }
-     ?>
+							<?php } 
+						} catch (PDOException $e) {}?>
 					</div>
 				</div>
 			</div>
@@ -261,109 +253,87 @@ $title = 'Trang chủ';
 					</div>
 					
 					<div class="row">
-						<div class="col-md-12 ">
+						<div class="col-md-12">
 							<div class="recent-job-wrapper alt-stripe mr-0">
 							<?php
-       require 'constants/db_config.php';
-       try {
-           $conn = new PDO(
-               "mysql:host=$servername;dbname=$dbname",
-               $username,
-               $password
-           );
-           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           $stmt = $conn->prepare(
-               'SELECT * FROM tbl_jobs ORDER BY enc_id DESC LIMIT 8'
-           );
-           $stmt->execute();
-           $result = $stmt->fetchAll();
+								require 'constants/db_config.php';
+								try {
+									$conn = new PDO(
+										"mysql:host=$servername;dbname=$dbname",
+										$username,
+										$password
+									);
+									$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+									$stmt = $conn->prepare(
+										'SELECT * FROM tbl_jobs ORDER BY enc_id DESC LIMIT 8'
+									);
+									$stmt->execute();
+									$result = $stmt->fetchAll();
 
-           foreach ($result as $row) {
+									foreach ($result as $row) {
+										$jobcity = $row['city'];
+										$jobcountry = $row['country'];
+										$type = $row['type'];
+										$title = $row['title'];
+										$closingdate = $row['closing_date'];
+										$company_id = $row['company'];
+										$post_date = date_format(date_create_from_format('d/m/Y', $closingdate), 'd');
+										$post_month = date_format(date_create_from_format('d/m/Y', $closingdate), 'F');
+										$post_year = date_format(date_create_from_format('d/m/Y', $closingdate), 'Y');
 
-               $jobcity = $row['city'];
-               $jobcountry = $row['country'];
-               $type = $row['type'];
-               $title = $row['title'];
-               $closingdate = $row['closing_date'];
-               $company_id = $row['company'];
-               $post_date = date_format(
-                   date_create_from_format('d/m/Y', $closingdate),
-                   'd'
-               );
-               $post_month = date_format(
-                   date_create_from_format('d/m/Y', $closingdate),
-                   'F'
-               );
-               $post_year = date_format(
-                   date_create_from_format('d/m/Y', $closingdate),
-                   'Y'
-               );
+										$stmtb = $conn->prepare(
+											"SELECT * FROM tbl_users WHERE member_no = '$company_id' and role = 'employer'"
+										);
+										$stmtb->execute();
+										$resultb = $stmtb->fetchAll();
+										foreach ($resultb as $rowb) {
+											$complogo = $rowb['avatar'];
+											$thecompname = $rowb['first_name'];
+										}
 
-               $stmtb = $conn->prepare(
-                   "SELECT * FROM tbl_users WHERE member_no = '$company_id' and role = 'employer'"
-               );
-               $stmtb->execute();
-               $resultb = $stmtb->fetchAll();
-               foreach ($resultb as $rowb) {
-                   $complogo = $rowb['avatar'];
-                   $thecompname = $rowb['first_name'];
-               }
-
-               if ($type == 'Freelance') {
-                   $sta =
-                       '<div class="job-label label label-success">Freelance</div>';
-               }
-               if ($type == 'Part-time') {
-                   $sta =
-                       '<div class="job-label label label-danger">Part-time</div>';
-               }
-               if ($type == 'Full-time') {
-                   $sta =
-                       '<div class="job-label label label-warning">Full-time</div>';
-               }
-               ?>
-										<a class="recent-job-item pad clearfix" target="_blank" href="explore-job.php?jobid=<?= $row[
-              'job_id'
-          ] ?>">
+										if ($type == 'Freelance') {
+											$sta = '<div class="job-label label label-success">Freelance</div>';
+										}
+										if ($type == 'Part-time') {
+											$sta = '<div class="job-label label label-danger">Part-time</div>';
+										}
+										if ($type == 'Full-time') {
+											$sta = '<div class="job-label label label-warning">Full-time</div>';
+										} ?>
+										<a class="recent-job-item clearfix" target="_blank" href="explore-job.php?jobid=<?= $row['job_id']; ?>">
 											<div class="GridLex-grid-middle">
 												<div class="GridLex-col-5_xs-12">
 													<div class="job-position">
 														<div class="image">
 															<?php if ($complogo == null) {
-                   print '<center><img alt="image"  src="images/blank.png"/></center>';
-               } else {
-                   echo '<center><img alt="image" title="' .
-                       $thecompname .
-                       '" width="180" height="100" src="data:image/jpeg;base64,' .
-                       base64_encode($complogo) .
-                       '"/></center>';
-               } ?>
+																print '<center><img alt="image"  src="images/blank.png"/></center>';
+															} else {
+																echo '<center><img alt="image" title="'.$thecompname .'" width="180" height="100" src="data:image/jpeg;base64,' .base64_encode($complogo).'"/></center>';
+															} ?>
 														</div>
 
 														<div class="content">
-															<h4><?= "$title" ?></h4>
-															<p><?= "$thecompname" ?></p>
+															<h4><?= "$title"; ?></h4>
+															<p><?= "$thecompname"; ?></p>
 														</div>
 													</div>
 												</div>
 
 												<div class="GridLex-col-5_xs-8_xss-12 mt-10-xss">
 													<div class="job-location">
-														<i class="fa fa-map-marker text-primary"></i> <?= "$jobcountry" ?></strong> - <?= "$jobcity" ?>
+														<i class="fa fa-map-marker text-primary"></i> <?= "$jobcountry"; ?></strong> - <?= "$jobcity"; ?>
 													</div>
 												</div>
 
 												<div class="GridLex-col-2_xs-4_xss-12">
-													<?= "$sta" ?>
-													<span class="font12 block spacing1 font400 text-center">Due - <?= "$post_month" ?> <?= "$post_date" ?>, <?= "$post_year" ?></span>
+													<?= "$sta"; ?>
+													<span class="font12 block spacing1 font400 text-center">Due - <?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?></span>
 												</div>
 											</div>
 										</a>						
-									<?php
-           }
-       } catch (PDOException $e) {
-       }
-       ?>
+									<?php }
+								} catch (PDOException $e) {}
+							?>
 						</div>
 					</div>
 				</div>
@@ -371,7 +341,7 @@ $title = 'Trang chủ';
 		</div>
 
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php'; ?>
+				<?php include 'layouts/footer.php' ?>
 			</footer>
 		</div>
 	</div>
