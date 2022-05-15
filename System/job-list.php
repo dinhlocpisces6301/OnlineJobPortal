@@ -62,11 +62,13 @@ if (isset($_GET['country']) && $_GET['category']) {
 
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<!-- 
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">	 -->
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">	
+
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
+
 	<link href="css/edit.css" rel="stylesheet">
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
@@ -85,80 +87,45 @@ if (isset($_GET['country']) && $_GET['category']) {
 <body class="not-transparent-header">
 	<div class="wrapper">
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-				<div class="container">
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="./"><img src="images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-						<ul class="nav navbar-nav" id="responsive-menu" style=" display: flow-root">
-							<li>
-								<a href="./">Trang chủ</a>
-							</li>
-							
-							<li>
-								<a href="job-list.php">Danh sách</a>
-							</li>
-							
-							<li>
-								<a href="employers.php">Nhà tuyển dụng</a>
-							</li>
-							
-							<li>
-								<a href="employees.php">Ứng viên</a>
-							</li>
-							
-							<li>
-								<a href="contact.php">Liên hệ</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-						<?php if ($user_online == true) {
-          					print '
-						    <li><a href="logout.php">Đăng xuất</a></li>
-							<li><a href="'.$myrole.'">Hồ sơ</a></li>';
-      					} else {
-          					print '
-							<li><a href="login.php">Đăng nhập</a></li>
-							<li><a data-toggle="modal" href="#registerModal">Đăng kí</a></li>';
-						} ?>
-						</ul>
-					</div>
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-			</nav>
-
-			<div id="registerModal" class="modal fade login-box-wrapper" tabindex="-1" style="display: none;" data-backdrop="static" data-keyboard="false" data-replace="true">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">THAM GIA NGAY</h4>
-				</div>
-				
-				<div class="modal-body">
-					<div class="row gap-20">
-						<!-- <div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div> -->
-						<div class="col-sm col-md">
-							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Đăng kí</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="modal-footer text-center">
-					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Đóng</button>
-				</div>
-			</div>
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
-		<div class="main-wrapper">
+		<div class="main-wrapper">		
+			<div class="breadcrumb-wrapper">
+				<div class="container">
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="./">Trang chủ</a></li>
+						<li><span><?= "$title"; ?></span></li>
+					</ol>
+				</div>
+			</div>
+
+			
+			<div class="wrapper" style="margin-top: 32px">			
+				<div class="container">
+					<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+							<img src="https://static.topcv.vn/img/bannerT1.jpg" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+							<img src="https://static.topcv.vn/img/1%20(5).png" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+							<img src="https://static.topcv.vn/img/1%20(4)%20(1).png" class="d-block w-100" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+				</div>
+			</div>		
+
 			<div class="second-search-result-wrapper">
 				<div class="container">
 					<form action="job-list.php" method="GET" autocomplete="off">
@@ -242,41 +209,6 @@ if (isset($_GET['country']) && $_GET['category']) {
 							</div>
 						</div>
 					</form>
-				</div>
-			</div>
-		
-			<div class="breadcrumb-wrapper">
-				<div class="container">
-					<ol class="breadcrumb-list booking-step">
-						<li><a href="./">Trang chủ</a></li>
-						<li><span><?= "$title"; ?></span></li>
-					</ol>
-				</div>
-			</div>
-
-			<div class="wrapper">
-			
-			<div class="container">
-			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-					<img src="https://static.topcv.vn/img/bannerT1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					<img src="https://static.topcv.vn/img/1%20(5).png" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-					<img src="https://static.topcv.vn/img/1%20(4)%20(1).png" class="d-block w-100" alt="...">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
 				</div>
 			</div>
 		</div>
@@ -494,64 +426,7 @@ if (isset($_GET['country']) && $_GET['category']) {
 			</div>
 
 			<footer class="footer-wrapper">
-				<div class="main-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12 col-md-9">
-								<div class="row">
-									<div class="col-sm-6 col-md-4">
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Night Jobs</h5>
-											<p>Night Jobs is a job portal, online job management system.</p>
-										</div>
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-										<li><a href="./">Trang chủ</a></li>
-											<li><a href="job-list.php">Danh sách</a></li>
-											<li><a href="employers.php">Nhà tuyển dụng</a></li>
-											<li><a href="employees.php">Ứng viên</a></li>
-											<li><a href="contact.php">Liên hệ</a></li>
-											<!-- <li><a href="#">Go to top</a></li> -->
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-								<h5 class="footer-title">Thông tin liên hệ</h5>
-								<p>Address: ĐH Giao thông vận tải TP HCM</p>
-								<p>Email: <a href="">DHGTVHCM@gmail.com</a></p>
-								<p>Phone: <a href="">123 456 789 10</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="bottom-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-4 col-md-4">
-								<p class="copy-right">&#169; Copyright <?= date('Y'); ?></p>
-							</div>
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu">
-									<li><a></a></li>
-								</ul>
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?= "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?= "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?= "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php include 'layouts/footer.php' ?>	
 			</footer>
 		</div>
 	</div> 
@@ -561,10 +436,10 @@ if (isset($_GET['country']) && $_GET['category']) {
 
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-<!-- <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- <script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script> -->
+<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/smoothscroll.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>

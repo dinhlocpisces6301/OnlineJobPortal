@@ -70,13 +70,13 @@ if (isset($_GET['page'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - <?php echo "$compname"; ?></title>
+	<title>Nightingale Jobs - <?= "$compname"; ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -110,60 +110,7 @@ if (isset($_GET['page'])) {
 <body class="not-transparent-header">
 	<div class="container-wrapper">
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-				<div class="container">
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="./"><img src="images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-						<ul class="nav navbar-nav" id="responsive-menu">
-							<li>
-								<a href="./">Trang chủ</a>
-							</li>
-							
-							<li>
-								<a href="job-list.php">Danh sách</a>
-							</li>
-							
-							<li>
-								<a href="employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="contact.php">Liên hệ</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-						<?php if ($user_online == true) {
-          				print '
-						    <li><a href="logout.php">logout</a></li>
-							<li><a href="'.$myrole .'">Profile</a></li>';
-      } else {
-          print '
-							<li><a href="login.php">login</a></li>
-							<li><a data-toggle="modal" href="#registerModal">register</a></li>';
-      } ?>
-
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php' ?>
 		</header>
 
 		<div class="main-wrapper">
@@ -174,7 +121,7 @@ if (isset($_GET['page'])) {
 				
 					<ol class="breadcrumb-list booking-step">
 						<li><a href="employers.php">Employers</a></li>
-						<li><span><?php echo "$compname"; ?></span></li>
+						<li><span><?= "$compname"; ?></span></li>
 					</ol>
 					
 				</div>
@@ -206,26 +153,26 @@ if (isset($_GET['page'])) {
           } ?>
 										</div>
 										
-										<h2 class="heading mb-15"><?php echo "$compname"; ?></h2>
+										<h2 class="heading mb-15"><?= "$compname"; ?></h2>
 									
-										<p class="location"><i class="fa fa-map-marker"></i> <?php echo "$compzip"; ?> <?php echo "$compcity"; ?>. <?php echo "$compstreet"; ?>, <?php echo "$compcountry"; ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?php echo "$compphone"; ?></p>
+										<p class="location"><i class="fa fa-map-marker"></i> <?= "$compzip"; ?> <?= "$compcity"; ?>. <?= "$compstreet"; ?>, <?= "$compcountry"; ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$compphone"; ?></p>
 										
 										<ul class="meta-list clearfix">
 											<li>
 												<h4 class="heading">Established In:</h4>
-												<?php echo "$compesta"; ?>
+												<?= "$compesta"; ?>
 											</li>
 											<li>
 												<h4 class="heading">Type:</h4>
-												<?php echo "$comptype"; ?>
+												<?= "$comptype"; ?>
 											</li>
 											<li>
 												<h4 class="heading">People:</h4>
-												<?php echo "$comppeopl"; ?>
+												<?= "$comppeopl"; ?>
 											</li>
 											<li>
 												<h4 class="heading">Website: </h4>
-												<a target="_blank" href="https://<?php echo "$compweb"; ?>"><?php echo "$compweb"; ?></a>
+												<a target="_blank" href="https://<?= "$compweb"; ?>"><?= "$compweb"; ?></a>
 											</li>
 										</ul>
 										
@@ -235,23 +182,23 @@ if (isset($_GET['page'])) {
 									
 										<h3>Company background</h3>
 										
-										<p><?php echo "$compbout"; ?></p>
+										<p><?= "$compbout"; ?></p>
 
 										
 										<h3>Services</h3>
 										
-										<p><?php echo "$compserv"; ?></p>
+										<p><?= "$compserv"; ?></p>
 										
 										<h3>Expertise</h3>
 										
-										<p><?php echo "$compexp"; ?></p>
+										<p><?= "$compexp"; ?></p>
 										
 									</div><br><br>
 
 									
 									<div class="section-title mb-40">
 						
-										<h4 class="text-left">jobs offered at <?php echo "$compname"; ?></h4>
+										<h4 class="text-left">jobs offered at <?= "$compname"; ?></h4>
 										
 									</div>
 
@@ -323,32 +270,32 @@ if (isset($_GET['page'])) {
 													
 														<div class="col-sm-7 col-md-8">
 														
-															<h4 class="heading"><?php echo $row['title']; ?></h4>
+															<h4 class="heading"><?= $row['title']; ?></h4>
 															<div class="meta-div clearfix mb-25">
-															<span>at <a href="company.php?ref=<?php echo "$company_id"; ?>"><?php echo "$compname"; ?></a></span>
-															<?php echo "$sta"; ?>
+															<span>at <a href="company.php?ref=<?= "$company_id"; ?>"><?= "$compname"; ?></a></span>
+															<?= "$sta"; ?>
 															</div>
 															
-															<p class="texing"><?php echo $row['description']; ?></p>
+															<p class="texing"><?= $row['description']; ?></p>
 														</div>
 														
 														<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
 																<span>Country:</span>
-																<?php echo $row['country']; ?>
+																<?= $row['country']; ?>
 															</li>
 															<li>
 																<span>City:</span>
-																<?php echo $row['city']; ?>
+																<?= $row['city']; ?>
 															</li>
 															<li>
 																<span>Experience:</span>
-																<?php echo $row['experience']; ?>
+																<?= $row['experience']; ?>
 															</li>
 															<li>
 																<span>Deadline: </span>
-																<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
+																<?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?>
 															</li>
 														</ul>
 														</div>
@@ -363,13 +310,13 @@ if (isset($_GET['page'])) {
 													
 														<div class="col-sm-7 col-md-8">
 														<div class="sub-category">
-															<a><?php echo $row['category']; ?></a>
+															<a><?= $row['category']; ?></a>
 
 														</div>
 														</div>
 														
 													<div class="col-sm-5 col-md-4">
-														<a target="_blank" href="explore-job.php?jobid=<?php echo $row[
+														<a target="_blank" href="explore-job.php?jobid=<?= $row[
                   'job_id'
               ]; ?>" class="btn btn-primary">View This Job</a>
 													</div>
@@ -443,7 +390,7 @@ if (isset($_GET['page'])) {
                 $b++
             ) { ?><li  class="paging-nav" ><a <?php if ($b == $page) {
     print ' style="background-color:#33B6CB; color:white" ';
-} ?>  href="company.php?ref=<?php echo "$company_id"; ?>&page=<?php echo "$b"; ?>"><?php echo $b .
+} ?>  href="company.php?ref=<?= "$company_id"; ?>&page=<?= "$b"; ?>"><?= $b .
     ' '; ?></a></li><?php }
             print '<li class="paging-nav"';
             if ($page == $records) {
@@ -478,99 +425,7 @@ if (isset($_GET['page'])) {
 			</div>
 
 			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="../">Trang chủ</a></li>
-											<li><a href="../job-list.php">Danh sách</a></li>
-											<li><a href="../employers.php">Employers</a></li>
-											<li><a href="../employees.php">Employees</a></li>
-											<li><a href="../contact.php">Liên hệ</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-								<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+				<?php include 'layouts/footer.php' ?>
 			</footer>
 			
 		</div>

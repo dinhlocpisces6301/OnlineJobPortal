@@ -30,7 +30,7 @@ foreach($result as $row)
 	
 	?>
 	<div style="width:100%">
-    <iframe  style="border:none;" src="ViewerJS/?title=CERTIFICATE#<?php echo 'data:application/pdf;base64,'.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
+    <iframe  style="border:none;" src="ViewerJS/?title=CERTIFICATE#<?= 'data:application/pdf;base64,'.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
 
     </div>
 
