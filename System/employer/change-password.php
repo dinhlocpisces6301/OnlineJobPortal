@@ -218,8 +218,8 @@ if ($user_online == 'true') {
 												</div>
 												
 												<div class="col-sm-12 mt-10">
-													<button type="submit" onclick="return check_passwords();" class="btn btn-primary">Update</button>
-													<button type="reset" class="btn btn-primary btn-inverse">Cancel</a>
+													<button type="submit" onclick="return check_passwords();" class="btn btn-primary">Cập Nhật</button>
+													<button type="reset" class="btn btn-primary btn-inverse">Hủy</a>
 												</div>
 
 											</div>

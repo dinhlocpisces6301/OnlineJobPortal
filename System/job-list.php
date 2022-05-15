@@ -32,7 +32,7 @@ if (isset($_GET['country']) && $_GET['category']) {
 
     $slc_country = "$country";
     $slc_category = "$cate";
-    $title = "$slc_category jobs in $slc_country";
+    $title = "$slc_category làm việc tại $slc_country";
 } else {
     $query1 = "SELECT * FROM tbl_jobs ORDER BY enc_id DESC LIMIT $page1,12";
     $query2 = 'SELECT * FROM tbl_jobs ORDER BY enc_id DESC';
@@ -308,13 +308,13 @@ if (isset($_GET['country']) && $_GET['category']) {
 											<div class="content">
 												<div class="job-item-list-info">
 													<div class="row">
-														<div class="col-sm-7 col-md-8">
+														<div class="col-sm-7 col-md-8 cont">
 															<h4 class="heading"><?= $row['title'] ?></h4>
 															<div class="meta-div clearfix mb-25">
 																<span>Tại <a href="company.php?ref=<?= "$compid" ?>"><?= "$thecompname" ?></a></span>
 																<?= "$sta" ?>
 															</div>
-														<p class="texing character_limit"><?= $row['description'] ?></p>
+														
 													</div>
 													
 													<div class="col-sm-5 col-md-4">
