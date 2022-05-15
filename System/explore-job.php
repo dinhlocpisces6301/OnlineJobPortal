@@ -216,7 +216,7 @@ if ($today_date > $conv_date) {
                           <div class="col-md-12">            
                              <div class="box-white box-detail-job">
                                 <div class="box-header">
-                                    <a href="https://www.topcv.vn/cong-ty/cong-ty-tnhh-thiet-bi-dan-dung-thuan-phong/93353.html" title="Công Ty TNHH Thiết Bị Dân Dụng Thuận Phong" class="company-logo">
+                                    <a href="company.php?ref=<?php echo "$compid"; ?>" title="Công Ty TNHH Thiết Bị Dân Dụng Thuận Phong" class="company-logo">
                                         <div class="box-company-logo">
                                             <?php if ($complogo == null) {
                                                 print '<center>No Company Logo</center>';
@@ -280,12 +280,18 @@ Thoả thuận
 </span>
 </div>
 </div>
-
+<div class="box-item">
+<img src="https://www.topcv.vn/v4/image/job-detail/icon/6.svg" alt="">
+<div>
+<strong>Cấp bậc </strong> <br>
+<span><?php echo "$jobtitle"; ?> </span>
+</div>
+</div>
 <div class="box-item">
 <img src="https://www.topcv.vn/v4/image/job-detail/icon/2.svg" alt="">
 <div>
 <strong>Hình thức làm việc </strong> <br>
-<span>Toàn thời gian</span>
+<span><?php echo "$jobtype"; ?></span>
 </div>
 </div>
 
@@ -310,7 +316,7 @@ Thoả thuận
 <div class="content-tab"><p><?= "$jobdescription" ?></p>
 
 <h3>Yêu cầu ứng viên</h3>
-<div class="content-tab"><> <?php echo "$jobreq"; ?></p></div>
+<div class="content-tab"> <?php echo "$jobreq"; ?></p></div>
 <h3>Quyền lợi</h3>
 <div class="content-tab"><p><?= "$jobrespo" ?></p>
 
