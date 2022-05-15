@@ -33,14 +33,16 @@
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 							<?php if ($user_online == true) {
-          					print '
+           print '
 							    <li><a href="logout.php">Đăng xuất</i></a></li>
-								<li><a href="'.$myrole.'">Hồ sơ</a></li>';
-      						} else {
-          					print '
+								<li><a href="' .
+               $myrole .
+               '">Hồ sơ</a></li>';
+       } else {
+           print '
 								<li><a href="login.php">Đăng nhập</i></a></li>
 								<li><a data-toggle="modal" href="#registerModal">Đăng kí</a></li>';
-      						} ?>
+       } ?>
 						</ul>
 					</div>	
 				</div>
@@ -57,15 +59,21 @@
 				
 				<div class="modal-body">
 					<div class="row gap-20">
-						<!-- <div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div> -->
+					
 						<div class="col-sm col-md">
-							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Đăng Kí</a>
+							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Đăng Kí Ứng Viên</a>
 						</div>
 					</div>
 				</div>
-				
+				<div class="modal-body">
+					<div class="row gap-20">
+						<div class="col-sm col-md">
+							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Đăng Kí Nhà Tuyển Dụng</a>
+						</div>
+
+						
+					</div>
+				</div>
 				<div class="modal-footer text-center">
 					<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Đóng</button>
 				</div>
