@@ -23,13 +23,13 @@ if (isset($_GET['page'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - Employers</title>
+	<title>Nightingale Jobs - Nhà tuyển dụng</title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -48,7 +48,7 @@ if (isset($_GET['page'])) {
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
-	
+	<link href="css/edit.css" rel="stylesheet">
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
@@ -85,7 +85,7 @@ if (isset($_GET['page'])) {
 				<div class="container">				
 					<ol class="breadcrumb-list booking-step">
 						<li><a href="./">Trang chủ</a></li>
-						<li><span>Employers</span></li>
+						<li><span>Nhà tuyển dụng</span></li>
 					</ol>					
 				</div>				
 			</div>
@@ -126,7 +126,7 @@ if (isset($_GET['page'])) {
 							<div class="GridLex-col-3_sm-4_xs-6_xss-12">
 								
 							<div class="top-company-2">
-							<a target="_blank" href="company.php?ref=<?= $row['member_no']; ?>">
+							<a target="_blank" href="company.php?ref=<?= $row['member_no'] ?>">
 										
 							<div class="image">
 							<?php if ($complogo == null) {
@@ -218,8 +218,7 @@ if (isset($_GET['page'])) {
                 $b++
             ) { ?><li  class="paging-nav" ><a <?php if ($b == $page) {
     print ' style="background-color:#33B6CB; color:white" ';
-} ?>  href="employers.php?page=<?= "$b"; ?>"><?= $b .
-    ' '; ?></a></li><?php }
+} ?>  href="employers.php?page=<?= "$b" ?>"><?= $b . ' ' ?></a></li><?php }
             print '<li class="paging-nav"';
             if ($page == $records) {
                 print 'class="disabled"';
@@ -243,7 +242,7 @@ if (isset($_GET['page'])) {
 			</div>
 
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>

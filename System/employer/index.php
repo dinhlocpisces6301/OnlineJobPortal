@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-<?php 
-include '../constants/settings.php'; 
+<?php
+include '../constants/settings.php';
 include 'constants/check-login.php';
 
-if ($user_online == "true") {
-if ($myrole == "employer") {
-}else{
-header("location:../");		
-}
-}else{
-header("location:../");	
+if ($user_online == 'true') {
+    if ($myrole == 'employer') {
+    } else {
+        header('location:../');
+    }
+} else {
+    header('location:../');
 }
 ?>
 <head>
@@ -120,18 +120,7 @@ header("location:../");
 
 		<div class="main-wrapper">
 		
-			<div class="breadcrumb-wrapper">
-			
-				<div class="container">
-				
-					<ol class="breadcrumb-list booking-step">
-						<li><a href="../">Nightingale Jobs</a></li>
-						<li><span>Profile</span></li>
-					</ol>
-					
-				</div>
-				
-			</div>
+		
 
 			
 			<div class="admin-container-wrapper">
@@ -150,13 +139,15 @@ header("location:../");
 									<div class="admin-user-item for-employer">
 										
 										<div class="image">
-										<?php 
-										if ($logo == null) {
-										print '<center>Company Logo Here</center>';
-										}else{
-										echo '<center><img alt="image" title="'.$compname.'" width="180" height="100" src="data:image/jpeg;base64,'.base64_encode($logo).'"/></center>';	
-										}
-										?><br>
+										<?php if ($logo == null) {
+              print '<center>Company Logo Here</center>';
+          } else {
+              echo '<center><img alt="image" title="' .
+                  $compname .
+                  '" width="180" height="100" src="data:image/jpeg;base64,' .
+                  base64_encode($logo) .
+                  '"/></center>';
+          } ?><br>
 										</div>
 										
 										<h4><?php echo "$compname"; ?></h4>
@@ -165,26 +156,26 @@ header("location:../");
 									
 									<div class="admin-user-action text-center">
 									
-										<a href="post-job.php" class="btn btn-primary btn-sm btn-inverse">Post a Job</a>
+										<a href="post-job.php" class="btn btn-primary btn-sm btn-inverse">Đăng tuyển</a>
 										
 									</div>
 									
 									<ul class="admin-user-menu clearfix">
 										<li  class="active">
-											<a href="./"><i class="fa fa-user"></i> Profile</a>
+											<a href="./"><i class="fa fa-user"></i> Hồ Sơ</a>
 										</li>
 										<li class="">
-										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
+										<a href="change-password.php"><i class="fa fa-key"></i> Đổi mật khẩu</a>
 										</li>
 			
 										<li>
-											<a href="../company.php?ref=<?php echo "$myid"; ?>"><i class="fa fa-briefcase"></i> Company Overview</a>
+											<a href="../company.php?ref=<?php echo "$myid"; ?>"><i class="fa fa-briefcase"></i> Tổng quan công ty</a>
 										</li>
 										<li>
-											<a href="my-jobs.php"><i class="fa fa-bookmark"></i> Posted Jobs</a>
+											<a href="my-jobs.php"><i class="fa fa-bookmark"></i> Công việc đã đăng</a>
 										</li>
 										<li>
-											<a href="../logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+											<a href="../logout.php"><i class="fa fa-sign-out"></i> Đăng xuất</a>
 										</li>
 									</ul>
 									
@@ -198,8 +189,8 @@ header("location:../");
 
 									<div class="admin-section-title">
 									
-										<h2>Profile</h2>
-										<p>Your last loged-in: <span class="text-primary"><?php echo "$mylogin"; ?></span></p>
+										<h2>Hồ sơ</h2>
+										<p>Lần đăng nhập gần nhất: <span class="text-primary"><?php echo "$mylogin"; ?></span></p>
 										
 									</div>
 									
@@ -212,7 +203,7 @@ header("location:../");
 												<div class="col-sm-12 col-md-8">
 												
 													<div class="form-group">
-														<label>Company Name</label>
+														<label>Tên công ty</label>
 														<input name="company" placeholder="Enter company name" type="text" class="form-control" value="<?php echo "$compname"; ?>" required>
 													</div>
 													
@@ -222,8 +213,8 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Established In</label>
-                                                    <input name="year" placeholder="Enter year eg: 2016, 2017, 2018" type="text" class="form-control" value="<?php echo "$esta"; ?>" required>
+														<label>Thành lập năm</label>
+                                                    <input name="year" placeholder=" 2016, 2017, 2018" type="text" class="form-control" value="<?php echo "$esta"; ?>" required>
 													</div>
 													
 												</div>
@@ -231,7 +222,7 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Type</label>
+														<label>Chuyên môn</label>
                                                     <input class="form-control" placeholder="Eg: Booking, Travel" name="type" required type="text" value="<?php echo "$mytitle"; ?>" required> 
 													</div>
 													
@@ -242,13 +233,23 @@ header("location:../");
 												<div class="form-group">
 													
 													<div class="col-sm-6 col-md-4">
-														<label>People</label>
+														<label>Quy mô</label>
 														<select name="people" required class="selectpicker show-tick form-control mb-15" data-live-search="false">
-															<option <?php if ($mypeople == "1-10") { print ' selected '; } ?> value="1-10">1-10</option>
-															<option <?php if ($mypeople == "11-100") { print ' selected '; } ?> value="11-100">11-100</option>
-															<option <?php if ($mypeople == "200+") { print ' selected '; } ?> value="200+" >200+</option>
-															<option <?php if ($mypeople == "300+") { print ' selected '; } ?> value="300+">300+</option>
-															<option <?php if ($mypeople == "1000+") { print ' selected '; } ?>value="1000+">1000+ </option>
+															<option <?php if ($mypeople == '1-10') {
+                   print ' selected ';
+               } ?> value="1-10">1-10</option>
+															<option <?php if ($mypeople == '11-100') {
+                   print ' selected ';
+               } ?> value="11-100">11-100</option>
+															<option <?php if ($mypeople == '200+') {
+                   print ' selected ';
+               } ?> value="200+" >200+</option>
+															<option <?php if ($mypeople == '300+') {
+                   print ' selected ';
+               } ?> value="300+">300+</option>
+															<option <?php if ($mypeople == '1000+') {
+                   print ' selected ';
+               } ?>value="1000+">1000+ </option>
 														</select>
 													</div>
 
@@ -264,7 +265,7 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>City/town</label>
+														<label>Thành phố / Tỉnh</label>
 														<input name="city" required type="text" class="form-control" value="<?php echo "$city"; ?>" placeholder="Enter your city">
 													</div>
 													
@@ -273,7 +274,7 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Street</label>
+														<label>Địa chỉ</label>
 														<input name="street" required type="text" class="form-control" value="<?php echo "$street"; ?>" placeholder="Enter your street">
 													</div>
 													
@@ -281,45 +282,46 @@ header("location:../");
 												
 												<div class="clear"></div>
 												
-												<div class="col-sm-6 col-md-4">
 												
-													<div class="form-group">
-														<label>Zip Code</label>
-														<input name="zip" required type="text" class="form-control" value="<?php echo "$zip"; ?>" placeholder="Enter your zip">
-													</div>
-													
-												</div>
 												
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Country</label>
+														<label>Quốc gia</label>
 														<select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
-														   require '../constants/db_config.php';
-														   try {
-                                                           $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                                                           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                         require '../constants/db_config.php';
+                                         try {
+                                             $conn = new PDO(
+                                                 "mysql:host=$servername;dbname=$dbname",
+                                                 $username,
+                                                 $password
+                                             );
+                                             $conn->setAttribute(
+                                                 PDO::ATTR_ERRMODE,
+                                                 PDO::ERRMODE_EXCEPTION
+                                             );
 
-	
-                                                           $stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
-                                                           $stmt->execute();
-                                                           $result = $stmt->fetchAll();
-  
-                                                           foreach($result as $row)
-                                                           {
-		                                                    ?> <option <?php if ($country == $row['country_name']) { print ' selected '; } ?> value="<?php echo $row['country_name']; ?>"><?php echo $row['country_name']; ?></option> <?php
-	 
-	                                                        }
+                                             $stmt = $conn->prepare(
+                                                 'SELECT * FROM tbl_countries ORDER BY country_name'
+                                             );
+                                             $stmt->execute();
+                                             $result = $stmt->fetchAll();
 
-					  
-	                                                       }catch(PDOException $e)
-                                                           {
-
-                                                           }
-	
-														   ?>
+                                             foreach (
+                                                 $result
+                                                 as $row
+                                             ) { ?> <option <?php if (
+     $country == $row['country_name']
+ ) {
+     print ' selected ';
+ } ?> value="<?php echo $row['country_name']; ?>"><?php echo $row[
+    'country_name'
+]; ?></option> <?php }
+                                         } catch (PDOException $e) {
+                                         }
+                                         ?>
 														</select>
 													</div>
 													
@@ -330,7 +332,7 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Phone Number</label>
+														<label>Số điện thoại</label>
 														<input type="text" name="phone" required class="form-control" value="<?php echo "$myphone"; ?>" placeholder="Enter your phone">
 													</div>
 													
@@ -339,7 +341,7 @@ header("location:../");
 												<div class="col-sm-6 col-md-4">
 												
 													<div class="form-group">
-														<label>Email Address</label>
+														<label>Email </label>
 														<input type="email" name="email" required class="form-control" value="<?php echo "$mymail"; ?>" placeholder="Enter your email">
 													</div>
 													
@@ -356,7 +358,7 @@ header("location:../");
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Company background</label>
+														<label>Gới thiệu</label>
 														<textarea name="background" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company background ..." style="height: 200px;"><?php echo "$desc"; ?></textarea>
 													</div>
 													
@@ -367,7 +369,7 @@ header("location:../");
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Services</label>
+														<label>Dịch vụ</label>
 														<textarea name="services" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company services ..." style="height: 200px;"><?php echo "$myserv"; ?></textarea>
 													</div>
 													
@@ -378,7 +380,7 @@ header("location:../");
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Expertise</label>
+														<label>Chuyên môn</label>
 														<textarea name="expertise" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company expertise ..." style="height: 200px;"><?php echo "$myex"; ?></textarea>
 													</div>
 													
@@ -387,8 +389,8 @@ header("location:../");
 												<div class="clear"></div>
 
 												<div class="col-sm-12 mt-10">
-													<button type="submit" class="btn btn-primary">Save</button>
-													<button type="reset" class="btn btn-warning">Cancel</button>
+													<button type="submit" class="btn btn-primary">Lưu</button>
+													<button type="reset" class="btn btn-warning">Hủy</button>
 												</div>
 
 											</div>
@@ -400,7 +402,7 @@ header("location:../");
 										<div class="col-sm-12 col-md-12">
 												
 										<div class="form-group bootstrap3-wysihtml5-wrapper">
-										<label>Company Logo</label>
+										<label>Logo</label>
 										<input accept="image/*" type="file" name="image"  required >
 										</div>
 													
@@ -409,14 +411,11 @@ header("location:../");
 										<div class="clear"></div>
 
 										<div class="col-sm-12 mt-10">
-										<button type="submit" class="btn btn-primary">Update</button>
-										<?php 
-										if ($logo == null) {
-
-										}else{
-										?><a onclick = "return confirm('Are you sure you want to delete your logo ?')" class="btn btn-primary btn-inverse" href="app/drop-dp.php">Delete</a> <?php
-										}
-										?>
+										<button type="submit" class="btn btn-primary">Cập nhật</button>
+										<?php if ($logo == null) {
+          } else {
+               ?><a onclick = "return confirm('Are you sure you want to delete your logo ?')" class="btn btn-primary btn-inverse" href="app/drop-dp.php">Xóa</a> <?php
+          } ?>
 										</div>
 										</div>
 										</form>
@@ -499,7 +498,9 @@ header("location:../");
 							<div class="col-sm-4 col-md-4">
 					
 								
-								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Nightingale Vision Software</p>
+								<p class="copy-right">&#169; Copyright <?php echo date(
+            'Y'
+        ); ?> Nightingale Vision Software</p>
 								
 							</div>
 							

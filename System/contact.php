@@ -15,8 +15,8 @@ include 'constants/check-login.php';
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -29,7 +29,7 @@ include 'constants/check-login.php';
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
-	
+	<link href="css/edit.css" rel="stylesheet">
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
@@ -61,7 +61,7 @@ include 'constants/check-login.php';
 				
 					<ol class="breadcrumb-list">
 						<li><a href="./">Trang Chủ</a></li>
-						<li><span>Contact Us</span></li>
+						<li><span>Liên hệ</span></li>
 					</ol>
 					
 				</div>
@@ -78,7 +78,7 @@ include 'constants/check-login.php';
 						
 							<div class="section-title">
 							
-								<h2>Contact us for help</h2>
+								<h2>Liên hệ để được giúp đỡ</h2>
 								
 							</div>
 
@@ -154,9 +154,9 @@ include 'constants/check-login.php';
 										<h5>Liên hệ qua</h5>
 										<div class="contact-social">
 										
-											<a href="<?= "$fb"; ?>" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
-											<a href="<?= "$tw"; ?>" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
-											<a href="<?= "$ig"; ?>" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+											<a href="<?= "$fb" ?>" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+											<a href="<?= "$tw" ?>" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+											<a href="<?= "$ig" ?>" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
 										
 										</div>
 								</li>
@@ -173,7 +173,7 @@ include 'constants/check-login.php';
 			</div>
 
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>
