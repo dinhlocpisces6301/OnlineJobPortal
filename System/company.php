@@ -136,20 +136,29 @@ if (isset($_GET['page'])) {
 <div class="company-detail-overview">
 <div id="company-logo">
 <div class="company-image-logo">
-<img src="https://cdn.topcv.vn/140/company_logos/cong-ty-co-phan-cong-nghe-vft-627336f48719f.jpg" alt="CÔNG TY CỔ PHẦN CÔNG NGHỆ VFT" class="img-responsive">
+<?php if ($complogo == null) {
+    print '<center>Company Logo Here</center>';
+} else {
+    echo '<center><img alt="image" title="' .
+        $compname .
+        '" width="180" height="100" class="img-responsive" src="data:image/jpeg;base64,' .
+        base64_encode($complogo) .
+        '"/></center>';
+} ?>
+
 </div>
 </div>
 <div class="company-info">
-<h1 class="company-detail-name text-highlight">CÔNG TY CỔ PHẦN CÔNG NGHỆ VFT</h1>
+<h1 class="company-detail-name text-highlight"><?= "$compname" ?></h1>
 <div class="d-flex">
 <p class="website">
-<i class="fa-globe"></i>
-<a href="http://www.vft.com.vn/#/" target="_blank">http://www.vft.com.vn/#/</a>
+<i class="fa fa-globe"></i>
+<a href="https://<?= "$compweb" ?>" target="_blank"><?= "$compweb" ?></a>
 </p>
 <p class="company-size">
 <i class="fa fa-building" aria-hidden="true"></i>
 
-100-499 nhân viên
+<?php echo "$comppeopl"; ?>
 </p>
 </div>
 </div>
@@ -164,62 +173,12 @@ if (isset($_GET['page'])) {
 				
 					<div class="row">
 						
-					<div class="col-md-12 ">
-							
-							<div class="company-detail-wrapper">
-
-
-					<div class="company-detail-header box-white text-center">
-										
-										<div class="image">
-										<?php if ($complogo == null) {
-              print '<center>Company Logo Here</center>';
-          } else {
-              echo '<center><img alt="image" title="' .
-                  $compname .
-                  '" width="180" height="100" src="data:image/jpeg;base64,' .
-                  base64_encode($complogo) .
-                  '"/></center>';
-          } ?>
-										</div>
-										
-										<h2 class="heading mb-15"><?= "$compname" ?></h2>
-									
-										<p class="location"><i class="fa fa-map-marker"></i> <?= "$compzip" ?> <?= "$compcity" ?>. <?= "$compstreet" ?>, <?= "$compcountry" ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$compphone" ?></p>
-										
-										<ul class="meta-list clearfix">
-											<li>
-												<h4 class="heading">Năm thành lập</h4>
-												<?php echo "$compesta"; ?>
-											</li>
-											<li>
-												<h4 class="heading">Loại hình:</h4>
-												<?php echo "$comptype"; ?>
-											</li>
-											<li>
-												<h4 class="heading">Quy mô:</h4>
-												<?php echo "$comppeopl"; ?>
-											</li>
-											<li>
-												<h4 class="heading">Website: </h4>
-												<a target="_blank" href="https://<?= "$compweb" ?>"><?= "$compweb" ?></a>
-											</li>
-										</ul>
-										
-									</div>
-
-
-		</div>
-		</div>
+					
 
 
 
 
-
-
-
-
-							<div class="col-md-9 ">
+							<div class="col-md-12 ">
 							
 								<div class="company-detail-wrapper">
 								
