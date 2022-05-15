@@ -322,7 +322,7 @@ $title = 'Trang chủ';
                        '<div class="job-label label label-warning">Full-time</div>';
                }
                ?>
-										<a class="recent-job-item pad clearfix" target="_blank" href="explore-job.php?jobid=<?= $row[
+										<a class="recent-job-item clearfix" target="_blank" href="explore-job.php?jobid=<?= $row[
               'job_id'
           ] ?>">
 											<div class="GridLex-grid-middle">
