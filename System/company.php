@@ -70,13 +70,13 @@ if (isset($_GET['page'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - <?= "$compname"; ?></title>
+	<title>Nightingale Jobs - <?= "$compname" ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -112,9 +112,10 @@ if (isset($_GET['page'])) {
 <!--  con cho -->
 
 <body class="not-transparent-header">
+    <!-- hihihihi -->
 	<div class="container-wrapper">
 		<header id="header">
-			<?php include 'layouts/header.php' ?>
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 		<div class="main-wrapper breadcrumb">
@@ -183,9 +184,9 @@ if (isset($_GET['page'])) {
           } ?>
 										</div>
 										
-										<h2 class="heading mb-15"><?= "$compname"; ?></h2>
+										<h2 class="heading mb-15"><?= "$compname" ?></h2>
 									
-										<p class="location"><i class="fa fa-map-marker"></i> <?= "$compzip"; ?> <?= "$compcity"; ?>. <?= "$compstreet"; ?>, <?= "$compcountry"; ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$compphone"; ?></p>
+										<p class="location"><i class="fa fa-map-marker"></i> <?= "$compzip" ?> <?= "$compcity" ?>. <?= "$compstreet" ?>, <?= "$compcountry" ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?= "$compphone" ?></p>
 										
 										<ul class="meta-list clearfix">
 											<li>
@@ -202,7 +203,7 @@ if (isset($_GET['page'])) {
 											</li>
 											<li>
 												<h4 class="heading">Website: </h4>
-												<a target="_blank" href="https://<?= "$compweb"; ?>"><?= "$compweb"; ?></a>
+												<a target="_blank" href="https://<?= "$compweb" ?>"><?= "$compweb" ?></a>
 											</li>
 										</ul>
 										
@@ -229,16 +230,16 @@ if (isset($_GET['page'])) {
 									
 										<h3 class="title">Giới thiệu</h3>
 										
-										<p><?= "$compbout"; ?></p>
+										<p><?= "$compbout" ?></p>
 
 										
 										<h3 class="title">Sản phẩm và dịch vụ</h3>
 										
-										<p><?= "$compserv"; ?></p>
+										<p><?= "$compserv" ?></p>
 										
 										<h3 class="title">Chuyên môn</h3>
 										
-										<p><?= "$compexp"; ?></p>
+										<p><?= "$compexp" ?></p>
 										
 									</div><br><br>
 
@@ -317,13 +318,13 @@ if (isset($_GET['page'])) {
 													
 														<div class="col-sm-7 col-md-8">
 														
-															<h4 class="heading"><?= $row['title']; ?></h4>
+															<h4 class="heading"><?= $row['title'] ?></h4>
 															<div class="meta-div clearfix mb-25">
-															<span>at <a href="company.php?ref=<?= "$company_id"; ?>"><?= "$compname"; ?></a></span>
-															<?= "$sta"; ?>
+															<span>at <a href="company.php?ref=<?= "$company_id" ?>"><?= "$compname" ?></a></span>
+															<?= "$sta" ?>
 															</div>
 															
-															<p class="texing"><?= $row['description']; ?></p>
+															<p class="texing"><?= $row['description'] ?></p>
 														</div>
 														
 														<div class="col-sm-5 col-md-4">
@@ -357,7 +358,7 @@ if (isset($_GET['page'])) {
 													
 														<div class="col-sm-7 col-md-8">
 														<div class="sub-category">
-															<a><?= $row['category']; ?></a>
+															<a><?= $row['category'] ?></a>
 
 														</div>
 														</div>
@@ -365,7 +366,7 @@ if (isset($_GET['page'])) {
 													<div class="col-sm-5 col-md-4">
 														<a target="_blank" href="explore-job.php?jobid=<?= $row[
                   'job_id'
-              ]; ?>" class="btn btn-primary">Xem thêm</a>
+              ] ?>" class="btn btn-primary">Xem thêm</a>
 													</div>
 														
 													</div>
@@ -437,8 +438,8 @@ if (isset($_GET['page'])) {
                 $b++
             ) { ?><li  class="paging-nav" ><a <?php if ($b == $page) {
     print ' style="background-color:#33B6CB; color:white" ';
-} ?>  href="company.php?ref=<?= "$company_id"; ?>&page=<?= "$b"; ?>"><?= $b .
-    ' '; ?></a></li><?php }
+} ?>  href="company.php?ref=<?= "$company_id" ?>&page=<?= "$b" ?>"><?= $b .
+    ' ' ?></a></li><?php }
             print '<li class="paging-nav"';
             if ($page == $records) {
                 print 'class="disabled"';
@@ -473,7 +474,7 @@ if (isset($_GET['page'])) {
 			</div>
 			
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		
