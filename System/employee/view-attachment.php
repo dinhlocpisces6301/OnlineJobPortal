@@ -11,47 +11,37 @@
 
 <body>
 <?php
-require '../constants/db_config.php';
-include 'constants/check-login.php';
-$file_id = $_GET['id'];
+	require '../constants/db_config.php';
+	include 'constants/check-login.php';
+	$file_id = $_GET['id'];
+	if ($user_online == "true") {
+		if ($myrole == "employee") {
+		} else {
+			header("location:../");		
+		}
+	} else {
+		header("location:../");	
+	}
 
-if ($user_online == "true") {
-if ($myrole == "employee") {
-}else{
-header("location:../");		
-}
-}else{
-header("location:../");	
-}
+	try {
+	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-try {
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+	$stmt = $conn->prepare("SELECT * FROM tbl_other_attachments WHERE id = :fileid AND member_no = '$myid'");
+	$stmt->bindParam(':fileid', $file_id);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
 
-	
-$stmt = $conn->prepare("SELECT * FROM tbl_other_attachments WHERE id = :fileid AND member_no = '$myid'");
-$stmt->bindParam(':fileid', $file_id);
-$stmt->execute();
-$result = $stmt->fetchAll();
+	foreach($result as $row)
+	{
+		$certificate = $row['attachment'];
+		$title = $row['title']; ?>
+		<iframe  style="border:none;" src="../ViewerJS/?title=<?= "$title"; ?> #<?= 'data:application/pdf;base64,'.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
 
-foreach($result as $row)
-{
-    $certificate = $row['attachment'];
-	$title = $row['title'];
-	
+		<?php }
+	} catch(PDOException $e) {}
 	?>
-<iframe  style="border:none;" src="../ViewerJS/?title=<?php echo "$title"; ?>#<?php echo 'data:application/pdf;base64,'.base64_encode($certificate).'' ?>" height="100%" width="100%"></iframe>
-
-<?php
-}
-
-					  
-}catch(PDOException $e)
-{
-
-}
-
-?>
 </body>
 
 </html>
