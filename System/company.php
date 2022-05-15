@@ -197,11 +197,12 @@ if (isset($_GET['page'])) {
 <h1 class="company-detail-name text-highlight">CÔNG TY CỔ PHẦN CÔNG NGHỆ VFT</h1>
 <div class="d-flex">
 <p class="website">
-<i class="fa fa-globe" aria-hidden="true"></i>
+<i class="fa-globe"></i>
 <a href="http://www.vft.com.vn/#/" target="_blank">http://www.vft.com.vn/#/</a>
 </p>
 <p class="company-size">
 <i class="fa fa-building" aria-hidden="true"></i>
+
 100-499 nhân viên
 </p>
 </div>
