@@ -4,7 +4,7 @@
 <?php
 require '../constants/settings.php';
 require 'constants/check-login.php';
-
+$title = "Đăng bài tuyển dụng";
 if ($user_online == 'true') {
     if ($myrole == 'employer') {
     } else {
@@ -25,8 +25,8 @@ if ($user_online == 'true') {
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -64,66 +64,19 @@ if ($user_online == 'true') {
 	<div class="container-wrapper">
 
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="../"><img src="../images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="../">Home</a>
-								
-							</li>
-							
-							<li>
-								<a href="../job-list.php">Job List</a>
-
-							</li>
-							
-							<li>
-								<a href="../employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="../employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="../contact.php">Contact Us</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<li><a href="../logout.php">logout</a></li>
-							<li><a href="./">Profile</a></li>
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 		<div class="main-wrapper">
 		
-		
+		<div class="breadcrumb-wrapper">
+				<div class="container">
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="../">Trang chủ</a></li>
+						<li><span><?=$title?></span></li>
+					</ol>
+				</div>
+			</div>
 
 			
 			<div class="section sm">
@@ -148,30 +101,30 @@ if ($user_online == 'true') {
           } ?>
 									</div>
 									
-									<h2 class="heading mb-15"><h4><?php echo "$compname"; ?></h4>
+									<h2 class="heading mb-15"><h4><?= "$compname"; ?></h4>
 								
-									<p class="location"><i class="fa fa-map-marker"></i> <?php echo "$zip"; ?> <?php echo "$city"; ?>. <?php echo "$street"; ?>, <?php echo "$country"; ?> <span class="block"> <i class="fa fa-phone"></i> <?php echo "$myphone"; ?></span></p>
+									<p class="location"><i class="fa fa-map-marker"></i> <?= "$zip"; ?> <?= "$city"; ?>. <?= "$street"; ?>, <?= "$country"; ?> <span class="block"> <i class="fa fa-phone"></i> <?= "$myphone"; ?></span></p>
 									
 									<ul class="meta-list clearfix">
 										<li>
 											<h4 class="heading">Được thành lập tại:</h4>
-											<?php echo "$esta"; ?>
+											<?= "$esta"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Chuyên môn:</h4>
-											<?php echo "$mytitle"; ?>
+											<?= "$mytitle"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Quy mô:</h4>
-											<?php echo "$mypeople"; ?>
+											<?= "$mypeople"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Website: </h4>
-											<a target="_blank" href="https://<?php echo "$myweb"; ?>"><?php echo "$myweb"; ?></a>
+											<a target="_blank" href="https://<?= "$myweb"; ?>"><?= "$myweb"; ?></a>
 										</li>
 										<li>
 											<h4 class="heading">Email: </h4>
-											<?php echo "$mymail"; ?>
+											<?= "$mymail"; ?>
 										</li>
 
 									</ul>
@@ -191,7 +144,7 @@ if ($user_online == 'true') {
 									<div class="company-detail-company-overview  mt-0 clearfix">
 										
 										<div class="section-title-02">
-											<h3 class="text-left">Đăng tuyển</h3>
+											<h3 class="text-left"><?=$title?></h3>
 										</div>
 
 										<form class="post-form-wrapper" action="app/post-job.php" method="POST" autocomplete="off">
@@ -251,7 +204,7 @@ if ($user_online == 'true') {
      $country == $row['country_name']
  ) {
      print ' selected ';
- } ?> value="<?php echo $row['country_name']; ?>"><?php echo $row[
+ } ?> value="<?= $row['country_name']; ?>"><?= $row[
     'country_name'
 ]; ?></option> <?php }
                                          } catch (PDOException $e) {
@@ -292,9 +245,9 @@ if ($user_online == 'true') {
                                              foreach (
                                                  $result
                                                  as $row
-                                             ) { ?> <option value="<?php echo $row[
+                                             ) { ?> <option value="<?= $row[
      'category'
- ]; ?>"><?php echo $row['category']; ?></option> <?php }
+ ]; ?>"><?= $row['category']; ?></option> <?php }
                                          } catch (PDOException $e) {
                                          }
                                          ?>
@@ -421,101 +374,8 @@ if ($user_online == 'true') {
 			
 			</div>
 
-			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="../">Home</a></li>
-											<li><a href="../job-list.php">Job List</a></li>
-											<li><a href="../employers.php">Employers</a></li>
-											<li><a href="../employees.php">Employees</a></li>
-											<li><a href="../contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-							<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-							
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+			<footer class="footer-wrapper" style="margin-top: 16px">
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 		
 	</div>

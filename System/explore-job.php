@@ -196,7 +196,7 @@ if ($today_date > $conv_date) {
 				<div class="container">
 				
 					<ol class="breadcrumb-list booking-step">
-						<li><a href="job-list.php">All jobs</a></li>
+						<li><a href="job-list.php">Danh sách việc làm</a></li>
 						<li><a target="_blank" href="company.php?ref=<?= "$compid" ?>"><?= "$compname" ?></a></li>
 						<li><span><?= "$jobtitle" ?></span></li>
 					</ol>
