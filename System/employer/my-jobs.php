@@ -3,7 +3,7 @@
 <?php
 require '../constants/settings.php';
 require 'constants/check-login.php';
-
+$title = "Công việc đã đăng tuyển";
 if ($user_online == 'true') {
     if ($myrole == 'employer') {
     } else {
@@ -37,8 +37,8 @@ if (isset($_GET['page'])) {
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -73,67 +73,19 @@ if (isset($_GET['page'])) {
 	<div class="container-wrapper">
 
 		<header id="header">
-
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="../"><img src="../images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="../">Home</a>
-								
-							</li>
-							
-							<li>
-								<a href="../job-list.php">Job List</a>
-
-							</li>
-							
-							<li>
-								<a href="../employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="../employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="../contact.php">Contact Us</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<li><a href="../logout.php">logout</a></li>
-							<li><a href="./">Profile</a></li>
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 		<div class="main-wrapper">
 		
-			
+            <div class="breadcrumb-wrapper">
+				<div class="container">
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="../">Trang chủ</a></li>
+						<li><span><?=$title?></span></li>
+					</ol>
+				</div>
+			</div>
 
 			
 			<div class="admin-container-wrapper">
@@ -145,56 +97,7 @@ if (isset($_GET['page'])) {
 						<div class="GridLex-grid-noGutter-equalHeight">
 						
 							<div class="GridLex-col-3_sm-4_xs-12">
-							
-								<div class="admin-sidebar">
-										
-										
-									<div class="admin-user-item for-employer">
-										
-										<div class="image">
-										<?php if ($logo == null) {
-              print '<center>Company Logo Here</center>';
-          } else {
-              echo '<center><img alt="image" title="' .
-                  $compname .
-                  '" width="180" height="100" src="data:image/jpeg;base64,' .
-                  base64_encode($logo) .
-                  '"/></center>';
-          } ?><br>
-										</div>
-										
-										<h4><?php echo "$compname"; ?></h4>
-										
-									</div>
-									
-									<div class="admin-user-action text-center">
-									
-										<a href="post-job.php" class="btn btn-primary btn-sm btn-inverse">Post a Job</a>
-										
-									</div>
-									
-									<ul class="admin-user-menu clearfix">
-										<li >
-											<a href="./"><i class="fa fa-user"></i> Profile</a>
-										</li>
-										<li class="">
-										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
-										</li>
-			
-										<li>
-											<a href="../company.php?ref=<?php echo "$myid"; ?>"><i class="fa fa-briefcase"></i> Company Overview</a>
-										</li>
-										<li  class="active">
-											<a href="my-jobs.php"><i class="fa fa-bookmark"></i> Posted Jobs</a>
-										</li>
-										<li>
-											<a href="../logout.php"><i class="fa fa-sign-out"></i> Logout</a>
-										</li>
-									</ul>
-									
-								</div>
-
-							</div>
+								<?php include 'layouts/admin_sidebar.php'; ?>
 							
 							<div class="GridLex-col-9_sm-8_xs-12">
 							
@@ -253,10 +156,10 @@ if (isset($_GET['page'])) {
 													
 
 											<div class="labeling">
-											<?php echo "$sta"; ?>
+											<?= "$sta"; ?>
 											</div>
 														
-											<a target="_blank" href="../explore-job.php?jobid=<?php echo $row[
+											<a target="_blank" href="../explore-job.php?jobid=<?= $row[
                'job_id'
            ]; ?>">
 														
@@ -279,21 +182,21 @@ if (isset($_GET['page'])) {
 											</div>
 														
 											<div class="content">
-											<h4 class="heading"><?php echo "$title"; ?></h4>
-											<p class="location"><i class="fa fa-map-marker text-primary"></i> <strong class="text-primary"><?php echo "$jobcountry"; ?></strong> - <?php echo "$jobcity"; ?></p>
-											<p class="date text-muted font12 font-italic">Hạn nộp<?php echo "$deadline"; ?></p>
+											<h4 class="heading"><?= "$title"; ?></h4>
+											<p class="location"><i class="fa fa-map-marker text-primary"></i> <strong class="text-primary"><?= "$jobcountry"; ?></strong> - <?= "$jobcity"; ?></p>
+											<p class="date text-muted font12 font-italic">Hạn nộp<?= "$deadline"; ?></p>
 											</div>
 															
 											</a>
 														
 											<div class="content-bottom">
 											<div class="sub-category">
-											<a target="_blank" href="view-applicants.php?jobid=<?php echo $row[
+											<a target="_blank" href="view-applicants.php?jobid=<?= $row[
                'job_id'
            ]; ?>">Ứng viên</a>
-											<a href="edit-job.php?jobid=<?php echo $row['job_id']; ?>">
+											<a href="edit-job.php?jobid=<?= $row['job_id']; ?>">
 Sửa công việc</a>
-											<a onclick = "return confirm('Are you sure you want to delete this job ?')" href="app/drop-job.php?id=<?php echo $row[
+											<a onclick = "return confirm('Are you sure you want to delete this job ?')" href="app/drop-job.php?id=<?= $row[
                'job_id'
            ]; ?>">
 Xóa công việc</a>
@@ -363,7 +266,7 @@ Xóa công việc</a>
                 $b++
             ) { ?><li  class="paging-nav" <?php if ($b == $page) {
     print 'class="active"';
-} ?> ><a href="my-jobs.php?page=<?php echo "$b"; ?>"><?php echo $b .
+} ?> ><a href="my-jobs.php?page=<?= "$b"; ?>"><?= $b .
     ' '; ?></a></li><?php }
             print '<li class="paging-nav"';
             if ($page == $records) {
@@ -395,101 +298,8 @@ Xóa công việc</a>
 			
 			</div>
 
-			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="../">Home</a></li>
-											<li><a href="../job-list.php">Job List</a></li>
-											<li><a href="../employers.php">Employers</a></li>
-											<li><a href="../employees.php">Employees</a></li>
-											<li><a href="../contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-							<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+			<footer class="footer-wrapper" style="margin-top: 16px">
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>

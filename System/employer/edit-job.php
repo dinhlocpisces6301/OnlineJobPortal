@@ -62,13 +62,13 @@ foreach($result as $row)
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Bwire Jobs - <?php echo "$jobtitle"; ?></title>
+	<title>Bwire Jobs - <?= "$jobtitle"; ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -103,61 +103,7 @@ foreach($result as $row)
 	<div class="container-wrapper">
 
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="../"><img src="../images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="../">Home</a>
-								
-							</li>
-							
-							<li>
-								<a href="../job-list.php">Job List</a>
-
-							</li>
-							
-							<li>
-								<a href="../employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="../employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="../contact.php">Contact Us</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<li><a href="../logout.php">logout</a></li>
-							<li><a href="./">Profile</a></li>
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 		<div class="main-wrapper">
@@ -167,9 +113,9 @@ foreach($result as $row)
 				<div class="container">
 				
 					<ol class="breadcrumb-list booking-step">
-						<li><a href="../">Home</a></li>
-						<li><a ><?php echo "$compname"; ?></a></li>
-						<li><span><?php echo "$jobtitle"; ?></span></li>
+						<li><a href="../">Trang chủ</a></li>
+						<li><a ><?= "$compname"; ?></a></li>
+						<li><span><?= "$jobtitle"; ?></span></li>
 					</ol>
 					
 				</div>
@@ -197,36 +143,36 @@ foreach($result as $row)
 										?>
 									</div>
 									
-									<h2 class="heading mb-15"><h4><?php echo "$compname"; ?></h4>
+									<h2 class="heading mb-15"><h4><?= "$compname"; ?></h4>
 								
-									<p class="location"><i class="fa fa-map-marker"></i> <?php echo "$zip"; ?> <?php echo "$city"; ?>. <?php echo "$street"; ?>, <?php echo "$country"; ?> <span class="block"> <i class="fa fa-phone"></i> <?php echo "$myphone"; ?></span></p>
+									<p class="location"><i class="fa fa-map-marker"></i> <?= "$zip"; ?> <?= "$city"; ?>. <?= "$street"; ?>, <?= "$country"; ?> <span class="block"> <i class="fa fa-phone"></i> <?= "$myphone"; ?></span></p>
 									
 									<ul class="meta-list clearfix">
 										<li>
-											<h4 class="heading">Established In:</h4>
-											<?php echo "$esta"; ?>
+											<h4 class="heading">Được thành lập tại:</h4>
+											<?= "$esta"; ?>
 										</li>
 										<li>
-											<h4 class="heading">Type:</h4>
-											<?php echo "$mytitle"; ?>
+											<h4 class="heading">Chuyên môn:</h4>
+											<?= "$mytitle"; ?>
 										</li>
 										<li>
-											<h4 class="heading">People:</h4>
-											<?php echo "$mypeople"; ?>
+											<h4 class="heading">Quy mô:</h4>
+											<?= "$mypeople"; ?>
 										</li>
 										<li>
 											<h4 class="heading">Website: </h4>
-											<a target="_blank" href="https://<?php echo "$myweb"; ?>"><?php echo "$myweb"; ?></a>
+											<a target="_blank" href="https://<?= "$myweb"; ?>"><?= "$myweb"; ?></a>
 										</li>
 										<li>
 											<h4 class="heading">Email: </h4>
-											<?php echo "$mymail"; ?>
+											<?= "$mymail"; ?>
 										</li>
 
 									</ul>
 									
 									
-									<a href="./" class="btn btn-primary mt-5"><i class="fa fa-pencil-square-o mr-5"></i>Edit</a>
+									<a href="./" class="btn btn-primary mt-5"><i class="fa fa-pencil-square-o mr-5"></i>Sửa</a>
 									
 								</div>
 					
@@ -240,7 +186,7 @@ foreach($result as $row)
 									<div class="company-detail-company-overview  mt-0 clearfix">
 										
 										<div class="section-title-02">
-											<h3 class="text-left"><?php echo "$jobtitle"; ?></h3>
+											<h3 class="text-left"><?= "$jobtitle"; ?></h3>
 										</div>
 
 										<form class="post-form-wrapper" action="app/update-job.php" method="POST" autocomplete="off">
@@ -251,8 +197,8 @@ foreach($result as $row)
 												<div class="col-sm-8 col-md-8">
 												
 													<div class="form-group">
-														<label>Job Title</label>
-														<input name="title" value="<?php echo "$jobtitle"; ?>" required type="text" class="form-control" placeholder="Enter job title">
+														<label>Chức vụ</label>
+														<input name="title" value="<?= "$jobtitle"; ?>" required type="text" class="form-control" placeholder="Enter job title">
 													</div>
 													
 												</div>
@@ -262,8 +208,8 @@ foreach($result as $row)
 												<div class="col-sm-4 col-md-4">
 												
 													<div class="form-group">
-														<label>City</label>
-														<input name="city" value="<?php echo "$jobcity"; ?>"  required type="text" class="form-control" placeholder="Enter city">
+														<label>Thành phố</label>
+														<input name="city" value="<?= "$jobcity"; ?>"  required type="text" class="form-control" placeholder="Enter city">
 													</div>
 													
 												</div>
@@ -271,7 +217,7 @@ foreach($result as $row)
 												<div class="col-sm-4 col-md-4">
 												
 													<div class="form-group">
-														<label>Country</label>
+														<label>Quốc gia</label>
 														<select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
@@ -287,7 +233,7 @@ foreach($result as $row)
   
                                                            foreach($result as $row)
                                                            {
-		                                                    ?> <option <?php if ($jobcountry == $row['country_name']) { print ' selected '; } ?> value="<?php echo $row['country_name']; ?>"><?php echo $row['country_name']; ?></option> <?php
+		                                                    ?> <option <?php if ($jobcountry == $row['country_name']) { print ' selected '; } ?> value="<?= $row['country_name']; ?>"><?= $row['country_name']; ?></option> <?php
 	 
 	                                                        }
 
@@ -308,7 +254,7 @@ foreach($result as $row)
 												<div class="col-sm-4 col-md-4">
 												
 													<div class="form-group">
-														<label>Job Category</label>
+														<label>Ngành nghề</label>
 															<select name="category" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
@@ -324,7 +270,7 @@ foreach($result as $row)
   
                                                            foreach($result as $row)
                                                            {
-		                                                    ?> <option <?php if ($jobcategory == $row['category']) { print ' selected '; } ?> value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option> <?php
+		                                                    ?> <option <?php if ($jobcategory == $row['category']) { print ' selected '; } ?> value="<?= $row['category']; ?>"><?= $row['category']; ?></option> <?php
 	 
 	                                                        }
 
@@ -344,8 +290,8 @@ foreach($result as $row)
 											    <div class="col-sm-4 col-md-4">
 												
 													<div class="form-group">
-														<label>Closing Date</label>
-														<input name="deadline" required type="text" class="form-control" value="<?php echo "$closingdate"; ?>" placeholder="Eg: 30/12/2018">
+														<label>Hạn nộp</label>
+														<input name="deadline" required type="text" class="form-control" value="<?= "$closingdate"; ?>" placeholder="Eg: 30/12/2018">
 													</div>
 													
 												</div>
@@ -355,7 +301,7 @@ foreach($result as $row)
 												<div class="col-xss-12 col-xs-6 col-sm-6 col-md-4">
 												
 													<div class="form-group mb-20">
-														<label>Job Type:</label>
+														<label>Loại công việc:</label>
 														<select name="jobtype" required class="selectpicker show-tick form-control" data-live-search="false" data-selected-text-format="count > 3" data-done-button="true" data-done-button-text="OK" data-none-selected-text="All">
 															<option value="" selected>Select</option>
 															<option <?php if ($jobtype == "Full-time") { print ' selected '; } ?> value="Full-time" data-content="<span class='label label-warning'>Full-time</span>">Full-time</option>
@@ -369,7 +315,7 @@ foreach($result as $row)
 												<div class="col-xss-12 col-xs-6 col-sm-6 col-md-4">
 												
 													<div class="form-group mb-20">
-														<label>Experience:</label>
+														<label>Kinh nghiêm:</label>
 														<select name="experience" required class="selectpicker show-tick form-control" data-live-search="false" data-selected-text-format="count > 3" data-done-button="true" data-done-button-text="OK" data-none-selected-text="All">
 															<option value="" selected >Select</option>
 															<option <?php if ($experience == "Expert") { print ' selected '; } ?> value="Expert">Expert</option>
@@ -388,8 +334,8 @@ foreach($result as $row)
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Job Description</label>
-														<textarea class="form-control bootstrap3-wysihtml5" name="description" required placeholder="Enter description ..." style="height: 200px;"><?php echo "$jobdescription"; ?></textarea>
+														<label>Mô tả công việc</label>
+														<textarea class="form-control bootstrap3-wysihtml5" name="description" required placeholder="Enter description ..." style="height: 200px;"><?= "$jobdescription"; ?></textarea>
 													</div>
 													
 												</div>
@@ -399,8 +345,8 @@ foreach($result as $row)
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Job Responsibilies</label>
-														<textarea name="responsiblities" required class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"><?php echo "$jobrespo"; ?></textarea>
+														<label>Quyền lợi</label>
+														<textarea name="responsiblities" required class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"><?= "$jobrespo"; ?></textarea>
 													</div>
 													
 												</div>
@@ -410,10 +356,10 @@ foreach($result as $row)
 												<div class="col-sm-12 col-md-12">
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
-														<label>Requirements</label>
-														<textarea name="requirements" required class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"><?php echo "$jobreq"; ?></textarea>
+														<label>Yêu cầu</label>
+														<textarea name="requirements" required class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"><?= "$jobreq"; ?></textarea>
 													</div>
-													<input type="hidden" name="jobid" value="<?php echo "$jobid"; ?>">
+													<input type="hidden" name="jobid" value="<?= "$jobid"; ?>">
 												</div>
 												
 												<div class="clear"></div>
@@ -433,7 +379,7 @@ foreach($result as $row)
 												<div class="clear"></div>
 												
 												<div class="col-sm-6 mt-30">
-													<button type="submit"  class="btn btn-primary btn-lg">Save Changes</button>
+													<button type="submit"  class="btn btn-primary btn-lg">Lưu</button>
 												</div>
 
 											</div>
@@ -457,98 +403,8 @@ foreach($result as $row)
 			
 			</div>
 
-			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Bwire Jobs</h5>
-											<p>Bwire Jobs is a job portal, online job management system developed by Bwire C Mashauri in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="../">Home</a></li>
-											<li><a href="../job-list.php">Job List</a></li>
-											<li><a href="../employers.php">Employers</a></li>
-											<li><a href="../employees.php">Employees</a></li>
-											<li><a href="../contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-								<h5 class="footer-title">Bwire Jobs Contact</h5>
-								
-								<p>Address : Dar es salaam, Tanzania PO.BOX 14859</p>
-								<p>Email : <a href="mailto:mashauri@programmer.net">mashauri@programmer.net</a></p>
-								<p>Phone : <a href="tel:+255689938643">+255 689 938 643</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> BwireSoft</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Bwire Charles Mashauri</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+			<footer class="footer-wrapper" style="margin-top: 16px">
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 		
 	</div>
