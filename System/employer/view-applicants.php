@@ -66,13 +66,13 @@ $job_title = $row['title'];
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nightingale Jobs - Applicants for the job <?php echo "$job_title"; ?></title>
+	<title>Nightingale Jobs - Applicants for the job <?= "$job_title"; ?></title>
 	<meta name="description" content="Online Job Management / Job Portal" />
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -117,61 +117,7 @@ $job_title = $row['title'];
 	<div class="container-wrapper">
 
 		<header id="header">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="./"><img src="../images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="../">Home</a>
-								
-							</li>
-							
-							<li>
-								<a href="../job-list.php">Job List</a>
-
-							</li>
-							
-							<li>
-								<a href="../employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="../employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="../contact.php">Contact Us</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<li><a href="../logout.php">logout</a></li>
-							<li><a href="./">Profile</a></li>
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 
@@ -183,7 +129,7 @@ $job_title = $row['title'];
 				
 					<ol class="breadcrumb-list booking-step">
 						<li><a href="./">Home</a></li>
-						<li><span>Applicants for the job <?php echo "$job_title"; ?></</span></li>
+						<li><span>Applicants for the job <?= "$job_title"; ?></</span></li>
 					</ol>
 					
 				</div>
@@ -197,7 +143,7 @@ $job_title = $row['title'];
 					<div class="sorting-wrappper">
 			
 						<div class="sorting-header">
-							<h3 class="sorting-title">Applicants for the job <?php echo "$job_title"; ?></</h3>
+							<h3 class="sorting-title">Applicants for the job <?= "$job_title"; ?></</h3>
 						</div>
 						
 		
@@ -256,7 +202,7 @@ $job_title = $row['title'];
 											
 										</div>
 										
-										<a target="_blank" href="../employee-detail.php?empid=<?php echo $rowb['member_no']; ?>" class="clearfix">
+										<a target="_blank" href="../employee-detail.php?empid=<?= $rowb['member_no']; ?>" class="clearfix">
 											
 											<div class="image clearfix">
 										    <?php 
@@ -273,13 +219,13 @@ $job_title = $row['title'];
 											
 											<div class="content">
 											
-												<h4><?php echo $rowb['first_name'] ?> <?php echo $rowb['last_name'] ?></h4>
-												<p class="location"><i class="fa fa-map-marker"></i> <?php echo $rowb['country'] ?></p>
+												<h4><?= $rowb['first_name'] ?> <?= $rowb['last_name'] ?></h4>
+												<p class="location"><i class="fa fa-map-marker"></i> <?= $rowb['country'] ?></p>
 												
-												<h6 class="text-primary">Education : <?php echo $rowb['education'] ?></h6>
+												<h6 class="text-primary">Education : <?= $rowb['education'] ?></h6>
 												
-                                                <h6 class="text-primary"><?php echo $rowb['title'] ?></h6>
-												<?php echo "$post_month"; ?> <?php echo "$post_date"; ?>, <?php echo "$post_year"; ?>
+                                                <h6 class="text-primary"><?= $rowb['title'] ?></h6>
+												<?= "$post_month"; ?> <?= "$post_date"; ?>, <?= "$post_year"; ?>
 												
 											</div>
 										
@@ -336,7 +282,7 @@ $job_title = $row['title'];
 					            for ($b=1;$b<=$records;$b++)
                                  {
                                  
-		                        ?><li  class="paging-nav" ><a <?php if ($b == $page) { print ' style="background-color:#33B6CB; color:white" '; } ?>  href="view-applicants.php?jobid=<?php echo "$job_id"; ?>&page=<?php echo "$b"; ?>"><?php echo $b." "; ?></a></li><?php
+		                        ?><li  class="paging-nav" ><a <?php if ($b == $page) { print ' style="background-color:#33B6CB; color:white" '; } ?>  href="view-applicants.php?jobid=<?= "$job_id"; ?>&page=<?= "$b"; ?>"><?= $b." "; ?></a></li><?php
                                  }	
 								 print '<li class="paging-nav"'; if ($page == $records) { print 'class="disabled"'; } print '><a '; if ($page == $records) { print ''; } else { print 'href="view-applicants.php?jobid='.$job_id.'&page='.$nextpage.'"';} print '><i class="fa fa-chevron-right"></i></a></li>';
 					             }
@@ -352,98 +298,8 @@ $job_title = $row['title'];
 			
 			</div>
 
-			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-										<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="./">Home</a></li>
-											<li><a href="job-list.php">Job List</a></li>
-											<li><a href="employers.php">Employers</a></li>
-											<li><a href="employees.php">Employees</a></li>
-											<li><a href="contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-								<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+			<footer class="footer-wrapper" style="margin-top: 16px">
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>

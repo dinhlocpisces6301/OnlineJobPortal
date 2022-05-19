@@ -167,7 +167,7 @@ if ($user_online == 'true') {
 															</div>
 
 															<div class="col-xs-5 col-sm-5">
-																<select name="Tháng" required class="selectpicker form-control" data-live-search="false">
+																<select name="month" required class="selectpicker form-control" data-live-search="false">
                                                                     <?php
                                                                     $x = 1;
 
@@ -212,7 +212,7 @@ if ($user_online == 'true') {
 															</div>
 
 															<div class="col-xs-4 col-sm-4">
-																<select name="Năm" class="selectpicker form-control" data-live-search="false">
+																<select name="year" class="selectpicker form-control" data-live-search="false">
 													            	<?php
                           $x = date('Y');
                           $yr = 60;

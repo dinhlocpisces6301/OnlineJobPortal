@@ -24,8 +24,8 @@ if ($user_online == 'true') {
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -60,142 +60,34 @@ if ($user_online == 'true') {
 	<div class="container-wrapper">
 
 		<header id="header">
-
-			<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
-
-				<div class="container">
-					
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="../"><img src="../images/logo.png" alt="Logo" /></a>
-						</div>
-					</div>
-					
-					<div id="navbar" class="navbar-nav-wrapper navbar-arrow">
-					
-						<ul class="nav navbar-nav" id="responsive-menu">
-						
-							<li>
-							
-								<a href="../">Home</a>
-								
-							</li>
-							
-							<li>
-								<a href="../job-list.php">Job List</a>
-
-							</li>
-							
-							<li>
-								<a href="../employers.php">Employers</a>
-							</li>
-							
-							<li>
-								<a href="../employees.php">Employees</a>
-							</li>
-							
-							<li>
-								<a href="../contact.php">Contact Us</a>
-							</li>
-
-						</ul>
-				
-					</div>
-
-					<div class="nav-mini-wrapper">
-						<ul class="nav-mini sign-in">
-							<li><a href="../logout.php">logout</a></li>
-							<li><a href="./">Profile</a></li>
-						</ul>
-					</div>
-				
-				</div>
-				
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-
-			
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
+		
 		<div class="main-wrapper">
-		
-		
-
-			
-			<div class="admin-container-wrapper">
-
+			<div class="breadcrumb-wrapper">
 				<div class="container">
-				
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="../">Trang chủ</a></li>
+						<li><span>Hồ sơ</span></li>
+					</ol>
+				</div>
+			</div>
+			<div class="admin-container-wrapper">
+				<div class="container">
 					<div class="GridLex-gap-15-wrappper">
-					
 						<div class="GridLex-grid-noGutter-equalHeight">
-						
 							<div class="GridLex-col-3_sm-4_xs-12">
-							
-								<div class="admin-sidebar">
-										
-										
-									<div class="admin-user-item for-employer">
-										
-										<div class="image">
-										<?php if ($logo == null) {
-              print '<center>Company Logo Here</center>';
-          } else {
-              echo '<center><img alt="image" title="' .
-                  $compname .
-                  '" width="180" height="100" src="data:image/jpeg;base64,' .
-                  base64_encode($logo) .
-                  '"/></center>';
-          } ?><br>
+								<?php include 'layouts/admin_sidebar.php'; ?>
+
+								<div class="GridLex-col-9_sm-8_xs-12">
+									<div class="admin-content-wrapper">
+										<div class="admin-section-title">
+											<h2>Hồ sơ</h2>
+											<p>Lần đăng nhập gần nhất: <span class="text-primary"><?= "$mylogin"; ?></span></p>
 										</div>
-										
-										<h4><?php echo "$compname"; ?></h4>
-										
-									</div>
 									
-									<div class="admin-user-action text-center">
-									
-										<a href="post-job.php" class="btn btn-primary btn-sm btn-inverse">Đăng tuyển</a>
-										
-									</div>
-									
-									<ul class="admin-user-menu clearfix">
-										<li  class="active">
-											<a href="./"><i class="fa fa-user"></i> Hồ Sơ</a>
-										</li>
-										<li class="">
-										<a href="change-password.php"><i class="fa fa-key"></i> Đổi mật khẩu</a>
-										</li>
-			
-										<li>
-											<a href="../company.php?ref=<?php echo "$myid"; ?>"><i class="fa fa-briefcase"></i> Tổng quan công ty</a>
-										</li>
-										<li>
-											<a href="my-jobs.php"><i class="fa fa-bookmark"></i> Công việc đã đăng</a>
-										</li>
-										<li>
-											<a href="../logout.php"><i class="fa fa-sign-out"></i> Đăng xuất</a>
-										</li>
-									</ul>
-									
-								</div>
-
-							</div>
-							
-							<div class="GridLex-col-9_sm-8_xs-12">
-							
-								<div class="admin-content-wrapper">
-
-									<div class="admin-section-title">
-									
-										<h2>Hồ sơ</h2>
-										<p>Lần đăng nhập gần nhất: <span class="text-primary"><?php echo "$mylogin"; ?></span></p>
-										
-									</div>
-									
-									<form class="post-form-wrapper" action="app/update-profile.php" method="POST" autocomplete="off">
-								
+										<form class="post-form-wrapper" action="app/update-profile.php" method="POST" autocomplete="off">
 											<div class="row gap-20">
 												<?php include 'constants/check_reply.php'; ?>
 												<div class="clear"></div>
@@ -204,7 +96,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Tên công ty</label>
-														<input name="company" placeholder="Enter company name" type="text" class="form-control" value="<?php echo "$compname"; ?>" required>
+														<input name="company" placeholder="Enter company name" type="text" class="form-control" value="<?= "$compname"; ?>" required>
 													</div>
 													
 												</div>
@@ -214,7 +106,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Thành lập năm</label>
-                                                    <input name="year" placeholder=" 2016, 2017, 2018" type="text" class="form-control" value="<?php echo "$esta"; ?>" required>
+                                                    <input name="year" placeholder=" 2016, 2017, 2018" type="text" class="form-control" value="<?= "$esta"; ?>" required>
 													</div>
 													
 												</div>
@@ -223,7 +115,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Chuyên môn</label>
-                                                    <input class="form-control" placeholder="Eg: Booking, Travel" name="type" required type="text" value="<?php echo "$mytitle"; ?>" required> 
+                                                    <input class="form-control" placeholder="Eg: Booking, Travel" name="type" required type="text" value="<?= "$mytitle"; ?>" required> 
 													</div>
 													
 												</div>
@@ -236,26 +128,26 @@ if ($user_online == 'true') {
 														<label>Quy mô</label>
 														<select name="people" required class="selectpicker show-tick form-control mb-15" data-live-search="false">
 															<option <?php if ($mypeople == '1-10') {
-                   print ' selected ';
-               } ?> value="1-10">1-10</option>
+																print ' selected ';
+															} ?> value="1-10">1-10</option>
 															<option <?php if ($mypeople == '11-100') {
-                   print ' selected ';
-               } ?> value="11-100">11-100</option>
+																print ' selected ';
+															} ?> value="11-100">11-100</option>
 															<option <?php if ($mypeople == '200+') {
-                   print ' selected ';
-               } ?> value="200+" >200+</option>
+																print ' selected ';
+															} ?> value="200+" >200+</option>
 															<option <?php if ($mypeople == '300+') {
-                   print ' selected ';
-               } ?> value="300+">300+</option>
+																print ' selected ';
+															} ?> value="300+">300+</option>
 															<option <?php if ($mypeople == '1000+') {
-                   print ' selected ';
-               } ?>value="1000+">1000+ </option>
+																print ' selected ';
+															} ?>value="1000+">1000+ </option>
 														</select>
 													</div>
 
 													<div class="col-sm-6 col-md-4">
 														<label>Website</label>
-														<input type="text" class="form-control" value="<?php echo "$myweb"; ?>" name="web" placeholder="Enter your website">
+														<input type="text" class="form-control" value="<?= "$myweb"; ?>" name="web" placeholder="Enter your website">
 													</div>
 														
 												</div>
@@ -266,7 +158,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Thành phố / Tỉnh</label>
-														<input name="city" required type="text" class="form-control" value="<?php echo "$city"; ?>" placeholder="Enter your city">
+														<input name="city" required type="text" class="form-control" value="<?= "$city"; ?>" placeholder="Enter your city">
 													</div>
 													
 												</div>
@@ -275,7 +167,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Địa chỉ</label>
-														<input name="street" required type="text" class="form-control" value="<?php echo "$street"; ?>" placeholder="Enter your street">
+														<input name="street" required type="text" class="form-control" value="<?= "$street"; ?>" placeholder="Enter your street">
 													</div>
 													
 												</div>
@@ -316,7 +208,7 @@ if ($user_online == 'true') {
      $country == $row['country_name']
  ) {
      print ' selected ';
- } ?> value="<?php echo $row['country_name']; ?>"><?php echo $row[
+ } ?> value="<?= $row['country_name']; ?>"><?= $row[
     'country_name'
 ]; ?></option> <?php }
                                          } catch (PDOException $e) {
@@ -333,7 +225,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Số điện thoại</label>
-														<input type="text" name="phone" required class="form-control" value="<?php echo "$myphone"; ?>" placeholder="Enter your phone">
+														<input type="text" name="phone" required class="form-control" value="<?= "$myphone"; ?>" placeholder="Enter your phone">
 													</div>
 													
 												</div>
@@ -342,7 +234,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group">
 														<label>Email </label>
-														<input type="email" name="email" required class="form-control" value="<?php echo "$mymail"; ?>" placeholder="Enter your email">
+														<input type="email" name="email" required class="form-control" value="<?= "$mymail"; ?>" placeholder="Enter your email">
 													</div>
 													
 												</div>
@@ -359,7 +251,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Gới thiệu</label>
-														<textarea name="background" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company background ..." style="height: 200px;"><?php echo "$desc"; ?></textarea>
+														<textarea name="background" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company background ..." style="height: 200px;"><?= "$desc"; ?></textarea>
 													</div>
 													
 												</div>
@@ -370,7 +262,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Dịch vụ</label>
-														<textarea name="services" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company services ..." style="height: 200px;"><?php echo "$myserv"; ?></textarea>
+														<textarea name="services" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company services ..." style="height: 200px;"><?= "$myserv"; ?></textarea>
 													</div>
 													
 												</div>
@@ -381,7 +273,7 @@ if ($user_online == 'true') {
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Chuyên môn</label>
-														<textarea name="expertise" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company expertise ..." style="height: 200px;"><?php echo "$myex"; ?></textarea>
+														<textarea name="expertise" class="bootstrap3-wysihtml5 form-control" placeholder="Enter company expertise ..." style="height: 200px;"><?= "$myex"; ?></textarea>
 													</div>
 													
 												</div>
@@ -421,111 +313,14 @@ if ($user_online == 'true') {
 										</form>
 									
 								</div>
-
 							</div>
-							
 						</div>
-
 					</div>
-
 				</div>
-			
 			</div>
 
-			<footer class="footer-wrapper">
-			
-				<div class="main-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-12 col-md-9">
-							
-								<div class="row">
-								
-									<div class="col-sm-6 col-md-4">
-									
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
-										
-										</div>
-
-									</div>
-									
-									<div class="col-sm-6 col-md-5 mt-30-xs">
-										<h5 class="footer-title">Quick Links</h5>
-										<ul class="footer-menu clearfix">
-											<li><a href="../">Home</a></li>
-											<li><a href="../job-list.php">Job List</a></li>
-											<li><a href="../employers.php">Employers</a></li>
-											<li><a href="../employees.php">Employees</a></li>
-											<li><a href="../contact.php">Contact Us</a></li>
-											<li><a href="#">Go to top</a></li>
-
-										</ul>
-									
-									</div>
-
-								</div>
-
-							</div>
-							
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-							
-								<h5 class="footer-title">Nightingale Jobs Contact</h5>
-								
-								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
-								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-								
-							</div>
-
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<div class="bottom-footer">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-4 col-md-4">
-					
-								
-								<p class="copy-right">&#169; Copyright <?php echo date(
-            'Y'
-        ); ?> Nightingale Vision Software</p>
-								
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-							
-								<ul class="bottom-footer-menu">
-									<li><a >Developed by Nathaniel Nkrumah</a></li>
-								</ul>
-							
-							</div>
-							
-							<div class="col-sm-4 col-md-4">
-								<ul class="bottom-footer-menu for-social">
-									<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-									<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-									<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-								</ul>
-							</div>
-						
-						</div>
-
-					</div>
-					
-				</div>
-			
+			<footer class="footer-wrapper" style="margin-top: 16px">
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>
