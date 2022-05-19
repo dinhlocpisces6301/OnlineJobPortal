@@ -131,7 +131,7 @@ if (isset($_GET['page'])) {
 									<?php require 'constants/check_reply.php'; ?>
 									<?php
          require '../constants/db_config.php';
-
+         $c = '';
          try {
              $conn = new PDO(
                  "mysql:host=$servername;dbname=$dbname",
@@ -476,7 +476,7 @@ if (isset($_GET['page'])) {
                   $resultb = $stmtb->fetchAll();
 
                   foreach ($resultb as $rowb) { ?>
-										<option <?php if ($country == $rowb['country_name']) {
+										<option <?php if ($c == $rowb['country_name']) {
               print ' selected ';
           } ?> value="<?php echo $rowb['country_name']; ?>"><?php echo $rowb[
     'country_name'
