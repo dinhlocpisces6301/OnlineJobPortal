@@ -27,8 +27,8 @@ if (isset($_GET['page'])) {
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -83,7 +83,7 @@ if (isset($_GET['page'])) {
 				
 					<ol class="breadcrumb-list booking-step">
 						<li><a href="./">Trang chủ</a></li>
-						<li><span>Employees</span></li>
+						<li><span>Ứng viên</span></li>
 					</ol>
 					
 				</div>
@@ -151,7 +151,7 @@ if (isset($_GET['page'])) {
 										
 										<a target="_blank" href="employee-detail.php?empid=<?= $row[
               'member_no'
-          ]; ?>" class="clearfix">
+          ] ?>" class="clearfix">
 											
 											<div class="image clearfix">
 										    <?php if ($empavatar == null) {
@@ -168,16 +168,14 @@ if (isset($_GET['page'])) {
 											
 											<div class="content">
 											
-												<h4><?= $row['first_name']; ?> <?= $row['last_name']; ?></h4>
-												<p class="location"><i class="fa fa-map-marker"></i> <?= $row[
-                'country'
-            ]; ?></p>
+												<h4><?= $row['first_name'] ?> <?= $row['last_name'] ?></h4>
+												<p class="location"><i class="fa fa-map-marker"></i> <?= $row['country'] ?></p>
 												
 												<h6 class="text-primary">Học vấn : <?php echo $row['education']; ?></h6>
 												
                                                 <h6 class="text-primary"><?= $row[
                                                     'title'
-                                                ]; ?></h6>
+                                                ] ?></h6>
 												
 											</div>
 										
@@ -250,8 +248,7 @@ if (isset($_GET['page'])) {
                 $b++
             ) { ?><li  class="paging-nav" ><a <?php if ($b == $page) {
     print ' style="background-color:#33B6CB; color:white" ';
-} ?>  href="employees.php?page=<?= "$b"; ?>"><?= $b .
-    ' '; ?></a></li><?php }
+} ?>  href="employees.php?page=<?= "$b" ?>"><?= $b . ' ' ?></a></li><?php }
             print '<li class="paging-nav"';
             if ($page == $records) {
                 print 'class="disabled"';
@@ -275,7 +272,7 @@ if (isset($_GET['page'])) {
 			</div>
 
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>

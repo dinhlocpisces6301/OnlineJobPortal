@@ -205,10 +205,10 @@ if (isset($_GET['page'])) {
 													
 														<a data-toggle="modal" href="#edit<?php echo $row[
                   'id'
-              ]; ?>" class="btn btn-primary btn-sm mb-5 mb-0-sm">Edit</a>
+              ]; ?>" class="btn btn-primary btn-sm mb-5 mb-0-sm">Sửa</a>
 									<a href="app/drop-qualification.php?id=<?php echo $row[
              'id'
-         ]; ?>" onclick = "return confirm('Are you sure you want to delete this qualification ?')" class="btn btn-primary btn-sm btn-inverse">Delete</a>
+         ]; ?>" onclick = "return confirm('Are you sure you want to delete this qualification ?')" class="btn btn-primary btn-sm btn-inverse">Xóa</a>
 									<div id="edit<?php echo $row[
              'id'
          ]; ?>" class="modal fade login-box-wrapper" tabindex="-1" data-width="550" style="display: none;" data-backdrop="static" data-keyboard="false" data-replace="true">

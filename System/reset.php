@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en">
-<?php 
-require 'constants/settings.php'; 
+<?php
+require 'constants/settings.php';
 require 'constants/check-login.php';
 
 if (isset($_GET['token'])) {
-$token = $_GET['token'];	
-}else{
-	header("location:./");
+    $token = $_GET['token'];
+} else {
+    header('location:./');
 }
-
 ?>
 <head>
 
@@ -23,8 +22,8 @@ $token = $_GET['token'];
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -60,7 +59,7 @@ $token = $_GET['token'];
 
 
 		<header id="header">
-			<?php include 'layouts/header.php' ?>
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 
@@ -73,7 +72,7 @@ $token = $_GET['token'];
 				
 					<ol class="breadcrumb-list">
 						<li><a href="./">Trang chủ</a></li>
-						<li><span>Reset Password</span></li>
+						<li><span>Cài lại mật khẩu</span></li>
 					</ol>
 					
 				</div>
@@ -92,52 +91,51 @@ $token = $_GET['token'];
 							<div class="row">
 
 								<div class="col-sm-6 col-sm-offset-3">
-                                <?php
-								require 'constants/check_reply.php';	
-								?>
+                                <?php require 'constants/check_reply.php'; ?>
                                 <form name="frm" action="app/change-pass.php" method="POST" autocomplete="off">
                                 <div class="login-box-wrapper">
 							
                                 <div class="modal-header">
-                                <h4 class="modal-title text-center">Reset your password</h4>
+                                <h4 class="modal-title text-center">Đặt lại mật khẩu của bạn</h4>
                                 </div>
 
                                 <div class="modal-body">
 																
                                 <div class="row gap-20">
 								<?php
-								require 'constants/db_config.php';
-								
-								try {
-                                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require 'constants/db_config.php';
 
-	
-                                $stmt = $conn->prepare("SELECT * FROM tbl_tokens WHERE token = :token limit 1");
-								$stmt->bindParam(':token', $token);
-                                $stmt->execute();
-                                $result = $stmt->fetchAll();
-                                $res = count($result);
-								
-								if ($res == "0") {
-									                                  print '
+        try {
+            $conn = new PDO(
+                "mysql:host=$servername;dbname=$dbname",
+                $username,
+                $password
+            );
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $stmt = $conn->prepare(
+                'SELECT * FROM tbl_tokens WHERE token = :token limit 1'
+            );
+            $stmt->bindParam(':token', $token);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $res = count($result);
+
+            if ($res == '0') {
+                print '
 	                            <div class="alert alert-warning">
 								<strong>Could not use this token because</strong><br>
                                  <li>This token is invalid</li>
 								 <li>This token is already used</li>
 	                          </div>
                                   ';
-								 $invalid_token = true;
-								 
-								}else{
-
-                                foreach($result as $row)
-                                {
-									?>
+                $invalid_token = true;
+            } else {
+                foreach ($result as $row) { ?>
 							    <div class="col-sm-12 col-md-12">
 
                                 <div class="form-group"> 
-                                <label>New password</label>
+                                <label>Mật khẩu mới</label>
                                 <input class="form-control" placeholder="Min 8 and Max 20 characters" name="password" required type="password"> 
                                 </div>
 												
@@ -146,43 +144,28 @@ $token = $_GET['token'];
                                 <div class="col-sm-12 col-md-12">
 												
                                 <div class="form-group"> 
-                                <label>Confirm New Password</label>
+                                <label>Xác nhận mật khẩu mới</label>
                                 <input class="form-control" placeholder="Min 8 and Max 20 characters" name="confirmpassword" required type="password"> 
                                 </div>
 												
                                 </div>
-								<?php
-								$_SESSION['resetmail'] = $row['email'];
-								?>
-								<?php
-								
- 
-	                            }
-								}
-
-					  
-	                            }catch(PDOException $e)
-                                {
-           
-                                }
-	
-	
-                                ?>
+								<?php $_SESSION['resetmail'] = $row['email']; ?>
+								<?php }
+            }
+        } catch (PDOException $e) {
+        }
+        ?>
 												
 </div>
 
 </div>
-<?php
-if (isset($invalid_token)) {
-	
-}else{
-print '
+<?php if (isset($invalid_token)) {
+} else {
+    print '
 <div class="modal-footer text-center">
 <button type="submit" onclick="return val();"  class="btn btn-primary">Reset my password</button>
-</div>';	
-}
-
-?>
+</div>';
+} ?>
 
 										
 </div>
@@ -200,7 +183,7 @@ print '
 			
 			</div>
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>
@@ -217,32 +200,32 @@ print '
 function val(){
 if(frm.password.value == "")
 {
-	alert("Enter the Password.");
+	alert("Nhập mật khẩu.");
 	frm.password.focus(); 
 	return false;
 }
 if((frm.password.value).length < 8)
 {
-	alert("Password should be minimum 8 characters.");
+	alert("Mật khẩu phải có tối thiểu 8 ký tự.");
 	frm.password.focus();
 	return false;
 }
 
 if((frm.password.value).length > 20)
 {
-	alert("Password should be maximum 20 characters.");
+	alert("Mật khẩu phải có tối đa 20 ký tự.");
 	frm.password.focus();
 	return false;
 }
 
 if(frm.confirmpassword.value == "")
 {
-	alert("Enter the Confirmation Password.");
+	alert("Nhập mật khẩu xác nhận.");
 	return false;
 }
 if(frm.confirmpassword.value != frm.password.value)
 {
-	alert("Password confirmation does not match.");
+	alert("Mật khẩu xác nhận không khớp.");
 	return false;
 }
 

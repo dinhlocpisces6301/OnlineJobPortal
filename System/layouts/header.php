@@ -24,9 +24,9 @@
 								<a href="employees.php">Ứng Viên</a>
 							</li>
 							
-							<li>
+							<!-- <li>
 								<a href="contact.php">Liên hệ</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 
