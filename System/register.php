@@ -3,7 +3,7 @@
 <?php
 include 'constants/settings.php';
 include 'constants/check-login.php';
-$title = 'Đăng kí'
+$title = 'Đăng kí';
 ?>
 <head>
 
@@ -16,8 +16,8 @@ $title = 'Đăng kí'
 	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
 	<meta name="author" content="BwireSoft">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?= "$actual_link"; ?>/images/banner.jpg" />
-    <meta property="og:image:secure_url" content="https://<?= "$actual_link"; ?>/images/banner.jpg" />
+	<meta property="og:image" content="http://<?= "$actual_link" ?>/images/banner.jpg" />
+    <meta property="og:image:secure_url" content="https://<?= "$actual_link" ?>/images/banner.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="300" />
@@ -53,7 +53,7 @@ $title = 'Đăng kí'
 
 
 		<header id="header">
-			<?php include 'layouts/header.php' ?>
+			<?php include 'layouts/header.php'; ?>
 		</header>
 
 
@@ -66,7 +66,7 @@ $title = 'Đăng kí'
 				
 					<ol class="breadcrumb-list">
 						<li><a href="./">Trang chủ</a></li>
-						<li><span><?=$title?></span></li>
+						<li><span><?= $title ?></span></li>
 					</ol>
 					
 				</div>
@@ -113,7 +113,7 @@ $title = 'Đăng kí'
 			
 			</div>
 			<footer class="footer-wrapper">
-				<?php include 'layouts/footer.php' ?>
+				<?php include 'layouts/footer.php'; ?>
 			</footer>
 			
 		</div>
@@ -124,32 +124,35 @@ $title = 'Đăng kí'
 function val(){
 if(frm.password.value == "")
 {
-	alert("Enter the Password.");
+	alert("Nhập mật khẩu.");
 	frm.password.focus(); 
 	return false;
 }
 if((frm.password.value).length < 8)
 {
-	alert("Password should be minimum 8 characters.");
+	alert("Mật khẩu phải có tối thiểu 8 ký tự.");
 	frm.password.focus();
 	return false;
 }
 
 if((frm.password.value).length > 20)
 {
-	alert("Password should be maximum 20 characters.");
+	alert("
+Mật khẩu phải có tối đa 20 ký tự.");
 	frm.password.focus();
 	return false;
 }
 
 if(frm.confirmpassword.value == "")
 {
-	alert("Enter the Confirmation Password.");
+	alert("
+Nhập mật khẩu xác nhận.");
 	return false;
 }
 if(frm.confirmpassword.value != frm.password.value)
 {
-	alert("Password confirmation does not match.");
+	alert("
+Xác nhận mật khẩu không khớp.");
 	return false;
 }
 

@@ -37,7 +37,7 @@ if (isset($_GET['empid'])) {
                 $about = $row['about'];
                 $empavatar = $row['avatar'];
                 $current_year = date('Y');
-                $myage = (int)$current_year - (int)$byear;
+                $myage = $current_year - $byear;
                 $myedu = $row['education'];
                 $mytitle = $row['title'];
                 $mymail = $row['email'];
@@ -80,7 +80,7 @@ if (isset($_GET['empid'])) {
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/component.css" rel="stylesheet">
-    <link href="css/edit.css" rel="stylesheet">
+	<link href="css/edit.css" rel="stylesheet">
 	<link rel="stylesheet" href="icons/linearicons/style.css">
 	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
@@ -116,7 +116,7 @@ if (isset($_GET['empid'])) {
 		</header>
 
 
-		<div class="main-wrapper" style="background-color: #f1f2f6">
+		<div class="main-wrapper">
 
 			<div class="breadcrumb-wrapper">
 			
@@ -137,11 +137,11 @@ if (isset($_GET['empid'])) {
 				
 					<div class="row">
 						
-							<div class="col-md-10 col-md-offset-1">
+							<div class="col-md-10 col-md-offset-1 ">
 							
 								<div class="employee-detail-wrapper ">
 								
-									<div class="employee-detail-header text-center box-white ">
+									<div class="employee-detail-header text-center box-white">
 										
 										<div class="image">
 										<?php if ($empavatar == null) {
@@ -179,20 +179,17 @@ if (isset($_GET['empid'])) {
 										
 									</div>
 						
-									<div class="employee-detail-company-overview mt-40 box-white clearfix">
+									<div class="employee-detail-company-overview mt-40 clearfix box-white">
 									
-										
-										
-										<div class="row">
-                                        <div class="col-sm-12">
-                                        <h3 class="title" >Giới thiệu</h3>
+										<h3>Giới thiệu</h3>
 										
 										<p><?= "$about" ?></p>
-        </div>
+										
+										<div class="row">
 										
 											<div class="col-sm-12">
 											
-												<h3 class="title">Học vấn</h3>
+												<h3>Học vấn</h3>
 												
 												<ul class="employee-detail-list">
 												<?php
@@ -216,14 +213,14 @@ if (isset($_GET['empid'])) {
                     foreach ($result as $row) { ?>
 												<li>
 												<h5><?= $row['course'] ?> </h5>
-												<p class="text-muted font-italic">Level - <?= $row['level'] ?> , <?= $row[
+												<p class="text-muted font-italic">Cấp độ <?= $row['level'] ?> , <?= $row[
      'timeframe'
  ] ?><span class="font600 text-primary"> <?= $row[
     'institution'
 ] ?></span> <?= $row['country'] ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate.php?id=<?= $row[
                 'id'
-            ] ?>">View Certificate</a></p>
+            ] ?>">Xem chứng chỉ</a></p>
 												</li>
 												<?php }
                 }
@@ -241,7 +238,7 @@ if (isset($_GET['empid'])) {
 											
 										</div>
 										
-										<h3 class="title fix_h">Kinh nghiệm làm việc</h3>
+										<h3>Kinh nghiệm làm việc</h3>
 											<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -267,9 +264,9 @@ if (isset($_GET['empid'])) {
 												<p class="text-muted font-italic"><?= $row['start_date'] ?> to <?= $row[
      'end_date'
  ] ?><span class="font600 text-primary"> <?= $row['institution'] ?></span></p>
-												<p>Supervisor : <span class="font600 text-primary"> <?= $row[
+												<p>Người quản lí:  <?= $row[
                 'supervisor'
-            ] ?></span> , Phone : <span class="font600 text-primary"> <?= $row[
+            ] ?></span> , Số điện thoại : <span class="font600 text-primary"> <?= $row[
     'supervisor_phone'
 ] ?></span> <br><?= $row['duties'] ?></p>
 												</li>
@@ -287,7 +284,7 @@ if (isset($_GET['empid'])) {
 										
 										
 										
-										<h3 class="title fix_h">Trình độ chuyên môn</h3>
+										<h3>Trình độ chuyên môn</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -318,7 +315,7 @@ if (isset($_GET['empid'])) {
 ] ?></span> <?= $row['country'] ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate-c.php?id=<?= $row[
                 'id'
-            ] ?>">View Certificate</a></p>
+            ] ?>">Xem chứng chỉ</a></p>
 												</li>
 												<?php
                     }
@@ -331,7 +328,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 												
 												
-											<h3 class="title fix_h">Thông tin khác</h3>
+											<h3>Thông tin khác</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -357,7 +354,7 @@ if (isset($_GET['empid'])) {
 												<p class="font600 text-primary"><?= $row['issuer'] ?></p>
 												<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-attachment.php?id=<?= $row[
                 'id'
-            ] ?>">View Attachment</a></p>
+            ] ?>">Xem phần đính kèm</a></p>
 												</li>
 												<?php }
                 }
@@ -370,7 +367,7 @@ if (isset($_GET['empid'])) {
 												</ul>
 										
 										
-										<h3 class="title fix_h">Trình độ ngoại ngữ</h3>
+										<h3>Trình độ ngoại ngữ</h3>
 												<ul class="employee-detail-list">
 												<?php
             require 'constants/db_config.php';
@@ -393,11 +390,11 @@ if (isset($_GET['empid'])) {
                     foreach ($result as $row) { ?>
 												<li>
 												<h5><?= $row['language'] ?> </h5>
-												<p class="text-muted font-italic">Speaking <span class="font600 text-primary"> <?= $row[
+												<p class="text-muted font-italic">Kỹ năng nói<span class="font600 text-primary"> <?= $row[
                 'speak'
-            ] ?></span> , Reading <span class="font600 text-primary"> <?= $row[
+            ] ?></span> , Kỹ năng đọc <span class="font600 text-primary"> <?= $row[
     'reading'
-] ?></span> , Writing <span class="font600 text-primary"> <?= $row[
+] ?></span> , Kỹ năng viết <span class="font600 text-primary"> <?= $row[
     'writing'
 ] ?></span></p>
 												</li>

@@ -68,7 +68,7 @@ $title = 'Trang chủ';
 		</header>
 
 		<div class="main-wrapper">
-			<div class="hero" style="background-image:url('https://therohani.com/wp-content/uploads/2021/06/daftar-bank-muamalat-online.png');">
+			<div class="hero" style="background-image:url('https://cafefcdn.com/2019/8/22/edf-tempo-couleur-de-demain-la-edf-tempo-historique-couleur-jour-et-demain-15664469984471689659056.jpg');">
 				<div class="container">
 					<h1>Tương Lai Tươi Sáng Của Bạn </h1>
 
